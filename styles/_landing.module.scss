@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.Hero_Heqd_text {
+  font-size: 69px;
+  font-family: "Tenor Sans", sans-serif;
+  font-weight: 400;
+}
+
+/* ========================= */
+/* ABOUT */
+/* ========================= */
+
+.hero_second {
+  background-color: #d6d0c2;
+  padding: 120px 0;
+  color: #523b2d;
+}
+.joy_headshot {
+  height: 800px;
+}
+
+.hero_second_div {
+  max-width: 600px;
+  font-size: 25px;
+  font-family: "Tenor Sans", sans-serif;
+}
+
+.about_joy {
+  padding: 100px;
+  max-width: 600px;
+}
+
+/* 🔥 FIXED IMAGE */
+
+/* ========================= */
+/* PROJECTS */
+/* ========================= */
+
+.project_display {
+  padding: 120px 0 100px;
+  background-color: #d6d0c2;
+}
+
+.selected_project {
+  font-family: "Baskervville", serif;
+  font-size: 40px;
+}
+
+.select_img {
+  height: 450px;
+  margin-top: 15px;
+  object-fit: cover;
+}
+
+.Select_project_name {
+  font-family: "Tenor Sans", sans-serif;
+  font-size: 18px;
+  margin-top: 14px;
+}
+
+.view_project {
+  font-family: "Tenor Sans", sans-serif;
+  text-decoration: underline;
+  font-size: 25px;
+  margin-top: 70px;
+}
+
+/* ========================= */
+/* SERVICES */
+/* ========================= */
+
+.services_img {
+  width: 100%;
+  max-width: 500px; /* controls size */
+  height: auto;
+  display: block;
+}
+.services_div {
+  background-color: #f1ede4;
+
+  gap: 50px;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.services_img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+.inteiror_design_div {
+  max-width: 500px;
+}
+
+.interior_serivce_text {
+  font-family: "Tenor Sans", sans-serif;
+  margin-top: 20px;
+}
+
+.btn_wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.explore_btn {
+  width: 250px;
+  background-color: black;
+  color: white;
+  padding: 12px 0;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* ========================= */
+/* PROCESS */
+/* ========================= */
+
+.list_service {
+  margin-top: 200px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.service_text {
+  font-size: 18px;
+}
+.list_img {
+  height: 700px;
+}
+.service_div {
+  padding-top: 100px;
+}
+.work_text {
+  font-style: italic;
+}
+.diana_name {
+  font-size: 55px;
+  font-family: "Baskervville", serif;
+}
+.second_div_header {
+  font-size: 50px;
+  font-family: "Baskervville", serif;
+  line-height: 47px;
+}
+
+/* ========================= */
+/* TESTIMONIAL */
+/* ========================= */
+
+.testimonial_texts {
+  font-family: "Baskerville", serif;
+  font-size: 48px;
+  font-style: italic;
+  text-align: center;
+  margin-top: 50px;
+  color: white;
+}
+
+.ceo_div {
+  margin-top: 80px;
+  background-color: #2c0a03;
+  color: white;
+  padding: 100px 0;
+}
+.joy_div {
+  display: flex;
+  justify-content: center;
+}
+.service_row {
+  font-family: "Baskervville", serif;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+@media (max-width: 1029px) {
+  .Hero_Heqd_text {
+    font-size: 40px;
+  }
+  .joy_div {
+    display: flex;
+    justify-content: center;
+  }
+  .diana_name {
+    font-size: 45px;
+    font-family: "Baskervville", serif;
+  }
+}
+
+@media (max-width: 768px) {
+  .diana_name {
+    font-size: 38px;
+    font-family: "Baskervville", serif;
+  }
+  
+  .btn_wrapper {
+    justify-content: flex-start;
+  }
+
+  .Hero_Heqd_text {
+    font-size: 40px;
+  }
+
+  .selected_project {
+    font-size: 35px;
+  }
+
+  .interior_serivce_text {
+    text-align: left;
+  }
+  .joy_headshot {
+    height: 500px;
+  }
+  .about_joy {
+    padding: 100px;
+    max-width: 400px;
+  }
+  .selected_project_div {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .select_img {
+    height: 400px;
+    margin-top: 15px;
+    object-fit: cover;
+  }
+  .interior_serivce_text {
+    font-family: "Tenor Sans", sans-serif;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  .hero_second_div {
+    max-width: 600px;
+    font-size: 20px;
+    font-family: "Tenor Sans", sans-serif;
+  }
+
+  /* 🔥 FIXED: only ONE rule now */
+}
+
+@media (max-width: 450px) {
+  .testimonial_texts {
+  font-family: "Baskerville", serif;
+  font-size: 28px;
+  font-style: italic;
+  text-align: center;
+  margin-top: 01px;
+  color: white;
+}
+  .Hero_Heqd_text {
+    font-size: 30px;
+  }
+  .joy_headshot {
+    margin-top: 30px;
+  }
+   .about_joy {
+    padding: 50px;
+    max-width: 400px;
+  }
+}

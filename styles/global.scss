@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./header.module";
+@import "./landing.module";
+@import "./footer.module";
+@import "./about.module";
+@import "./project.module";
+@import "./contact.module";
+@import "./archi.module";
+@import "./blog.module";
+@import "./service.module";
