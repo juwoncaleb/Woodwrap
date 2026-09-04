@@ -1,271 +1,191 @@
 "use client";
 
-import Link from "next/link";
+import { useState } from "react";
 
-// Instagram icon
-const InstagramIcon = () => (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-    <circle cx="12" cy="12" r="4" />
-    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
-  </svg>
-);
+/**
+ * Footer — replicates the Salt Design Co. site footer.
+ *
+ * Usage:
+ *   import Footer from "@/components/Footer";
+ *   <Footer />
+ *
+ * Everything (nav links, socials, badge text, copyright) is passed as
+ * props with sensible defaults, so you can drop this into any Next.js
+ * project and re-skin it by passing your own data.
+ *
+ * Styling uses Tailwind CSS utility classes. If this project doesn't
+ * already use Tailwind, either install it (https://tailwindcss.com/docs/guides/nextjs)
+ * or swap the className props for your own CSS module / plain CSS.
+ */
 
-// Pinterest icon
-const PinterestIcon = () => (
-  <svg
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.598-.299-1.482c0-1.388.806-2.428 1.808-2.428.853 0 1.267.641 1.267 1.408 0 .858-.548 2.143-.83 3.33-.236.995.499 1.806 1.476 1.806 1.772 0 3.135-1.867 3.135-4.562 0-2.387-1.715-4.055-4.163-4.055-2.836 0-4.5 2.127-4.5 4.326 0 .857.33 1.775.741 2.276a.3.3 0 0 1 .069.284c-.076.313-.244.995-.277 1.134-.044.183-.146.222-.337.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.967-.527-2.292-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.938.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z" />
-  </svg>
-);
+const DEFAULT_LINKS = [
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Shop", href: "/shop" },
+  { label: "Press", href: "/press" },
+  { label: "Blog", href: "/blog" },
+  { label: "Inquiry Form", href: "/inquiry" },
+];
 
-export default function Footer() {
-  const navLinks = {
-    col1: [
-      { label: "STUDIO", href: "/about" },
-      { label: "PROJECTS", href: "/project" },
-      { label: "SERVICES", href: "/services" },
-    ],
-    col2: [
-      { label: "JOURNAL", href: "/blog" },
-      { label: "CONTACT", href: "/contact" },
-      { label: "T&C", href: "/terms" },
-    ],
-    col3: [
-      { label: "LOCATION", href: "/location" },
-      { label: "TAGS", href: "/tags" },
-    ],
-  };
+const DEFAULT_SOCIALS = [
+  { label: "Instagram", href: "https://instagram.com" },
+  { label: "Pinterest", href: "https://pinterest.com" },
+  { label: "Facebook", href: "https://facebook.com" },
+];
+
+function CircleBadge({
+  topText = "SALT DESIGN CO",
+  bottomText = "EST. 2014   NEW JERSEY",
+  monogram = "SD",
+}) {
+  return (
+    <svg
+      viewBox="0 0 200 200"
+      className="h-32 w-32 shrink-0 sm:h-36 sm:w-36"
+      role="img"
+      aria-label={`${topText} logo, ${bottomText}`}
+    >
+      <defs>
+        <path id="badge-top-arc" d="M 20,100 A 80,80 0 1 1 180,100" fill="none" />
+        <path id="badge-bottom-arc" d="M 35,140 A 80,80 0 0 0 165,140" fill="none" />
+      </defs>
+
+      {/* outer / inner rings */}
+      <circle cx="100" cy="100" r="92" fill="none" stroke="currentColor" strokeWidth="1" />
+      <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeWidth="1" />
+
+      {/* curved top label */}
+      <text fill="currentColor" fontSize="11" letterSpacing="2.5" fontFamily="var(--font-sans, sans-serif)">
+        <textPath href="#badge-top-arc" startOffset="50%" textAnchor="middle">
+          {topText}
+        </textPath>
+      </text>
+
+      {/* curved bottom label */}
+      <text fill="currentColor" fontSize="8.5" letterSpacing="1.5" fontFamily="var(--font-sans, sans-serif)">
+        <textPath href="#badge-bottom-arc" startOffset="50%" textAnchor="middle">
+          {bottomText}
+        </textPath>
+      </text>
+
+      {/* monogram */}
+      <text
+        x="100"
+        y="106"
+        fill="currentColor"
+        fontSize="34"
+        textAnchor="middle"
+        fontFamily="var(--font-serif, Georgia, serif)"
+        fontStyle="italic"
+      >
+        {monogram}
+      </text>
+      <text x="100" y="122" fill="currentColor" fontSize="8" textAnchor="middle" letterSpacing="1">
+        CO.
+      </text>
+    </svg>
+  );
+}
+
+export default function Footer({
+  links = DEFAULT_LINKS,
+  socials = DEFAULT_SOCIALS,
+  brandName = "Salt Design Co",
+  designCredit = "IDCO",
+  year = new Date().getFullYear(),
+  onSubscribe,
+}) {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("idle"); // idle | loading | done
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (!email) return;
+    setStatus("loading");
+    try {
+      if (onSubscribe) {
+        await onSubscribe(email);
+      }
+      setStatus("done");
+      setEmail("");
+    } catch {
+      setStatus("idle");
+    }
+  }
 
   return (
-    <footer
-      style={{
-        backgroundColor: "#2C0A03",
-        color: "#e8ddd5",
-        fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1400px",
-          margin: "0 auto",
-          padding: "60px 48px",
-          display: "grid",
-          gridTemplateColumns: "1fr auto 1fr",
-          gap: "48px",
-          alignItems: "start",
-        }}
-        className="footer-grid"
-      >
-        {/* LEFT: Logo */}
-        <div className="footer-logo" style={{ flexShrink: 0 }}>
-          <Link href="/" aria-label="Home">
-            <img className="logo_header" src="/logo_white.png" alt="logo" />
-          </Link>
-        </div>
-
-        {/* CENTER: Nav */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, auto)",
-            gap: "0 64px",
-            justifyContent: "center",
-          }}
-          className="nav-columns"
-        >
-          {[navLinks.col1, navLinks.col2, navLinks.col3].map((col, ci) => (
-            <nav key={ci} className="nav-block">
-              <ul
-                className="mt-6"
-                style={{ listStyle: "none", margin: 0, padding: 0 }}
-              >
-                {col.map((link) => (
-                  <li
-                    key={link.label}
-                    style={{ marginTop: "10px", marginBottom: "10px" }}
-                    className="nav-item"
+    <footer className="bg-[#a39d8c] text-[#f4f1ea]">
+      <div className="mx-auto max-w-7xl px-6 py-16 sm:px-10 lg:px-16">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:items-center">
+          {/* Nav links */}
+          <nav aria-label="Footer navigation">
+            <ul className="space-y-3 text-xs font-medium tracking-[0.15em]">
+              {links.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="uppercase transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-current"
                   >
-                    <Link
-                      href={link.href}
-                      style={{
-                        color: "#e8ddd5",
-                        textDecoration: "none",
-                        fontSize: "13px",
-                        letterSpacing: "0.12em",
-                        opacity: 0.85,
-                      }}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-              {/* Socials under first column on desktop */}
-              {ci === 0 && (
-                <div
-                  className="socials-desktop"
-                  style={{ display: "flex", gap: "14px", marginTop: "8px" }}
+          {/* Badge */}
+          <div className="flex justify-center">
+            <CircleBadge />
+          </div>
+
+          {/* Newsletter */}
+          <div className="lg:justify-self-end lg:text-right">
+            <p className="mb-6 font-serif text-lg italic">Sign Up to Our Newsletter</p>
+            <form onSubmit={handleSubmit} className="w-full max-w-sm lg:ml-auto">
+              <div className="flex items-end justify-between gap-4 border-b border-[#f4f1ea]/70 pb-2">
+                <label htmlFor="footer-email" className="sr-only">
+                  Email address
+                </label>
+                <input
+                  id="footer-email"
+                  type="email"
+                  required
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full bg-transparent font-serif text-base italic placeholder:text-[#f4f1ea]/80 focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="shrink-0 text-xs font-medium tracking-[0.15em] uppercase transition-opacity hover:opacity-70 disabled:opacity-50"
                 >
-                  <a
-                    href="https://www.instagram.com/j_luxuryinterior/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <InstagramIcon />
-                  </a>
-
-                  <a
-                    href="https://pinterest.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <PinterestIcon />
-                  </a>
-                </div>
-              )}
-            </nav>
-          ))}
-        </div>
-
-        {/* Socials — mobile */}
-        <div className="socials-mobile">
-          <a
-            href="https://www.instagram.com/j_luxuryinterior/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <InstagramIcon />
-          </a>
-
-          <a
-            href="https://pinterest.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <PinterestIcon />
-          </a>
-        </div>
-
-        {/* RIGHT: Contact */}
-        <div
-          style={{
-            textAlign: "right",
-            fontSize: "12px",
-            lineHeight: "1.8",
-            opacity: 0.85,
-          }}
-          className="contact-info"
-        >
-          <p style={{ marginBottom: "16px" }}>
-            ADDRESS <br />
-            No 4 Onohim Adam Close <br />
-            Chevy View Estate, Eti-Osa <br />
-            Lagos, Nigeria
-          </p>
-
-          <p style={{ margin: 0, fontSize: "14px",}}>
-            Whatsapp —{" "}
-            <a
-              href="https://wa.me/2348131526435"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "#e8ddd5", textDecoration: "none" }}
-            >
-              +234 813 152 6435
-            </a>
-            <br />
-            Email —{" "}
-            <a
-              href="mailto:Joy@thejluxury.com"
-              style={{ color: "#e8ddd5", textDecoration: "none" }}
-            >
-              Joy@thejluxury.com
-            </a>
-          </p>
+                  {status === "loading" ? "..." : status === "done" ? "Subscribed" : "Subscribe"}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
 
-      <style>{`
-        .socials-mobile {
-          display: none;
-        }
-
-        @media (max-width: 900px) {
-          .footer-grid {
-            grid-template-columns: 1fr !important;
-            text-align: center;
-            gap: 0 !important;
-            padding: 48px 24px !important;
-          }
-
-          .footer-logo {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-          }
-
-          .nav-columns {
-            grid-template-columns: repeat(2, auto) !important;
-            justify-content: center !important;
-            row-gap: 32px !important;
-            column-gap: 48px !important;
-            margin-bottom: 40px;
-          }
-
-          .nav-block:nth-child(3) {
-            grid-column: span 2;
-          }
-
-          .nav-item {
-            margin-bottom: 18px !important;
-          }
-
-          .nav-item:last-child {
-            margin-bottom: 0 !important;
-          }
-
-          .socials-desktop {
-            display: none !important;
-          }
-
-          .socials-mobile {
-            display: flex !important;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 40px;
-          }
-
-          .contact-info {
-            text-align: center !important;
-          }
-        }
-
-        @media (max-width: 520px) {
-          .nav-columns {
-            grid-template-columns: repeat(2, auto) !important;
-            column-gap: 32px !important;
-          }
-        }
-      `}</style>
+      {/* Bottom bar */}
+      <div className="border-t border-[#f4f1ea]/30">
+        <div className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-4 px-6 py-6 text-xs tracking-[0.1em] sm:flex-row sm:justify-between sm:px-10 lg:px-16">
+          <ul className="flex gap-6 uppercase">
+            {socials.map((social) => (
+              <li key={social.label}>
+                <a href={social.href} className="transition-opacity hover:opacity-70">
+                  {social.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="uppercase">
+            Copyright {year} {brandName} / Site design by {designCredit}
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }

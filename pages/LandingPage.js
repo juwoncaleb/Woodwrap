@@ -6,6 +6,7 @@ import Link from "next/link";
 import Testimonial from "./components/testimonial";
 
 const images = ["/im.jpg", "/im1.jpg", "/im2.jpg", "/im3.jpg"];
+const heroImages = ["/hero2.webp", "/hero1.webp", "/img3.jpg"];
 
 const services = [
   {
@@ -31,6 +32,16 @@ const services = [
 ];
 
 export default function LandingPage() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % heroImages.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const [openIndex, setOpenIndex] = useState(null);
   const [current, setCurrent] = useState(0);
 
@@ -50,11 +61,20 @@ export default function LandingPage() {
       {/* Hero */}
       <Header />
 
-      <div
-        className="relative w-full h-[75vh] sm:h-[80vh] md:h-screen bg-cover bg-center"
-        style={{ backgroundImage: "url('/hero2.webp')" }}
-      >
+      <div className="relative w-full h-[75vh] sm:h-[80vh] md:h-screen overflow-hidden">
+        {heroImages.map((src, index) => (
+          <div
+            key={src}
+            className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"
+            style={{
+              backgroundImage: `url('${src}')`,
+              opacity: index === currentIndex ? 1 : 0,
+            }}
+          />
+        ))}
+
         <div className="absolute inset-0 bg-black/30" />
+
         <div className="relative z-10 flex items-center justify-center h-full px-4 text-center">
           <p className="text-white Hero_Heqd_text leading-snug">
             YOUR HOME — REIMAGINED
@@ -63,104 +83,113 @@ export default function LandingPage() {
       </div>
 
       {/* About */}
-      <div className="hero_second">
-        <center>
-          <div className="hero_second_div">
-            <p>
-              We craft refined spaces that feel like a sanctuary — soulful,
-              peaceful, and beautifully yours.
-            </p>
-          </div>
-        </center>
-      </div>
-
-      <div className="joy_div flex flex-col-reverse min-[450px]:flex-row items-center justify-center gap-6 text-center">
-        <div className="about_joy">
-          <p className="diana_name">Joy Akobudu</p>
-          <p className="design_title">OWNER & PRINCIPAL DESIGNER</p>
+      <div className="susan_div">
+        <div className="hero_second">
+          <center>
+            <div className="hero_second_div">
+              <p>
+                At Wood Wrap, we believe that stylish, elevated, and timeless
+                interiors can transform daily rituals into moments of relaxation
+                and inspiration. Our full-service approach, deep vendor
+                relationships, and commitment to overseeing every detail ensure
+                that your home is not only beautifully curated but also a place
+                to be lived in and loved for years to come
+              </p>
+            </div>
+            <hr className="divider_line" />
+          </center>
         </div>
 
-        <div>
-          <img className="joy_headshot" src="./joyy.PNG" alt="Joy" />
+        <div className="joy_div flex flex-col-reverse min-[450px]:flex-row items-center justify-center gap-6 text-center">
+          <div className="about_joy">
+            <p className="design_title">
+              “Hiring Susan was the best thing we’ve ever done. They understood
+              our vision, ran with it and exceeded our expectations. I look for
+              every excuse possible to work with them again.”
+            </p>
+            <p className="test_name">M. PARNESS</p>
+            <div className="home_btn">
+              <button className="about_studio_button">ABOUT THE STUDIO</button>
+            </div>
+          </div>
+
+          <div>
+            <img className="joy_headshot" src="./cfo.jpg" alt="Joy" />
+          </div>
         </div>
       </div>
 
       {/* Projects */}
-      <div className="project_display px-4">
-        <center>
-          <p className="selected_project ">Selected Projects</p>
-
-          <div className="grid selected_project_div grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 justify-items-center mt-10 w-full max-w-5xl mx-auto">
-            <Link href="https://jluxury.vercel.app/projects/6i6kMoKBC1tqi1lImJfnTR">
-              <div>
-                <img
-                  className="select_img w-full max-w-xs mx-auto"
-                  src="./royal.webp"
-                  alt=""
-                />
-                <p className="Select_project_name">Royal Garden - Lagos</p>
-              </div>
-            </Link>
-
-            <Link href="https://jluxury.vercel.app/projects/5WQd6vYx7ZD2u8k7XRxRBo">
-              <div>
-                <img
-                  className="select_img w-full max-w-xs mx-auto"
-                  src="./lekki1p.webp"
-                  alt=""
-                />
-                <p className="Select_project_name">Lekki Phase 1 - Lagos</p>
-              </div>
-            </Link>
-
-            <Link href="https://jluxury.vercel.app/projects/1kt1XtQpcQJBlVXDW1Z7QJ">
-              <div>
-                <img
-                  className="select_img w-full max-w-xs mx-auto"
-                  src="./mansion.webp"
-                  alt=""
-                />
-                <p className="Select_project_name">Anambra Project</p>
-              </div>
-            </Link>
-          </div>
-<Link href='./project'> 
-          <p className="view_project mt-6">View Projects</p>
-</Link>
-        </center>
-      </div>
-
-      {/* Services Intro */}
-      <div className="services_div flex max-[450px]:flex-col flex-row items-center justify-center gap-10">
-        {/* IMAGE */}
-        <div className="flex justify-center items-center w-full max-[450px]:w-full w-1/2">
-          <img
-            className="services_img"
-            src="./sopa.png"
-            alt="Interior design"
-          />
+      <div className="flex justify-between scroll_animation">
+        <div className="flex-1 min-w-0">
+          <img className="w-full h-auto" src="./m1.jpg" />
         </div>
 
-        {/* TEXT */}
-        <div className="inteiror_design_div w-full max-[450px]:w-full w-1/2 text-left max-[450px]:text-center">
-          <p className="selected_project">Interior Design Services</p>
-
-          <p className="interior_serivce_text">
-            At J-Luxury, we offer bespoke interior design and interior
-            architecture services, thoughtfully tailored to each clients needs
-            and way of life. From initial concept to final detail, we guide you
-            through a seamless, collaborative process — blending soulful design,
-            architectural expertise, and refined project coordination to create
-            spaces that are both purposeful and effortlessly elegant.
-          </p>
-
-          <div className="btn_wrapper">
-            <button className="explore_btn">Explore our services</button>
+        <div className="flex-1 min-w-0 flex items-center justify-center">
+          <div className="scroll_text">
+            <p className="scroll_text_minor">
+              Located in Red Bank, New Jersey, Salt Design Company is a
+              full-service interior design firm designing timeless and elevated
+              family homes throughout Monmouth County and beyond.
+            </p>
+            <div className="scroll_header">
+              <p className="scroll_big_text">Full Service</p>
+              <p className="scroll_big_text">New Construction</p>
+              <p className="scroll_big_text">Remodelling & Renovation</p>
+              <p className="scroll_big_text">Virtual Consultation</p>
+            </div>
+            <div className="home_btn">
+              <button className="scroll_btn">WORK TOGETHER </button>
+            </div>
           </div>
         </div>
       </div>
+
+      <div className="flex justify-between scroll_animation">
+        <div className="flex-1 min-w-0 flex items-center justify-center">
+          <div className=" woodwrap_text_div">
+            <p>
+              At Wood Wrap, we believe that stylish, elevated, and timeless
+              interiors can transform daily rituals into moments of relaxation
+              and inspiration.
+            </p>
+            <p className="mt-10">
+              Our full-service approach, deep vendor relationships, and
+              commitment to overseeing every detail ensure that your home is not
+              only beautifully curated but also a place to be lived in and loved
+              for years to come
+            </p>
+          </div>
+        </div>
+
+        <div className="flex-1 min-w-0">
+          <img className="w-full h-auto" src="./seas.jpg" />
+        </div>
+      </div>
+
+      <div className="flex justify-between scroll_animation">
+        <div className="flex-1 min-w-0">
+          <img className="w-full h-auto" src="./lagos.jpg" />
+        </div>
+
+        <div className="flex-1 min-w-0 flex items-center justify-center">
+          <div className="scroll_text">
+            <div className=" woodwrap_text_div">
+              <p>
+                At Wood Wrap, we believe that stylish, elevated, and timeless
+                interiors can transform daily rituals into moments of relaxation
+                and inspiration.
+              </p>
+            </div>
+            <div className="home_btn">
+              <button className="scroll_btn">WORK TOGETHER </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Process */}
-      <div className="list_service flex flex-col min-[451px]:flex-row items-center justify-center gap-10 md:gap-16">
+      <div className="list_service mb-20 flex flex-col min-[451px]:flex-row items-center justify-center gap-10 md:gap-16">
         {/* IMAGE */}
         <div className="w-full min-[451px]:w-auto flex justify-center">
           <img
@@ -171,7 +200,7 @@ export default function LandingPage() {
         </div>
 
         {/* TEXT */}
-        <div className="service_div w-full min-[451px]:w-auto">
+        <div className="service_div  w-full min-[451px]:w-auto">
           <p className="second_div_header m-0">
             <span className="work_text">Our</span>
           </p>
@@ -205,32 +234,6 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* Video */}
-      <div className="ceo_div flex justify-center px-4">
-        <div>
-          <p className="testimonial_texts mb-10">Hear from our clients</p>
-
-          <div className="flex justify-center items-center w-full px-4">
-            <div
-              className="w-[70vw] max-w-[70vw]"
-              style={{
-                aspectRatio: "1.7708830548926013",
-                maxHeight: "80vh",
-              }}
-            >
-              <iframe
-                className="block w-full h-full rounded-lg"
-                src="https://killerplayer.com/watch/video/7c022227-3ad9-480c-a23f-9529c8761868"
-                frameBorder={0}
-                allow="autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Testimonial */}
       <div className="philosophy_hero_wrapper">
         <div className="philosophy_hero_overlay" />
         <div className="philosophy_hero_content">

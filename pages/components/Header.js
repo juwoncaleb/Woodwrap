@@ -6,13 +6,9 @@ import { useState } from "react";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const leftLinks = [
-    { label: "HOME", href: "/" },
-    { label: "ABOUT", href: "/about" },
-    { label: "SERVICES", href: "/services" },
-  ];
-
   const rightLinks = [
+    { label: "ABOUT", href: "/about" },
+    { label: "SERVICE", href: "/service" },
     { label: "PORTFOLIO", href: "/project" },
     { label: "BLOG", href: "/blog" },
     { label: "CONTACT", href: "/contact" },
@@ -20,27 +16,18 @@ export default function Header() {
 
   return (
     <header className="header_bg relative h-20">
-      <div className="flex h-full items-center justify-between  ">
-        {/* Desktop left links */}
-        <div className="hidden min-[930px]:flex min-[930px]:gap-6">
-          {leftLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="heade_hidden cursor-pointer"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
-        {/* Logo */}
+      <div className="flex h-full items-center justify-between px-6">
+        {/* Logo - far left */}
         <Link href="/">
-          <img className="logo_header h-10 w-auto" src="/logo.png" alt="Logo" />
+          <img
+            className="logo_header h-10 w-auto"
+            src="/woodwrap.png"
+            alt="Logo"
+          />
         </Link>
 
-        {/* Desktop right links */}
-        <div className="hidden min-[930px]:flex min-[930px]:gap-6">
+        {/* Desktop right links - far right */}
+        <div className="hidden min-[930px]:flex min-[930px]:items-center min-[930px]:gap-6">
           {rightLinks.map((link) => (
             <Link
               key={link.label}
@@ -80,7 +67,7 @@ export default function Header() {
       {/* Mobile/Tablet Menu */}
       {menuOpen && (
         <div className="absolute left-0 top-full z-50 flex w-full flex-col items-center gap-5 bg-white py-6 shadow-lg min-[930px]:hidden">
-          {[...leftLinks, ...rightLinks].map((link) => (
+          {rightLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}

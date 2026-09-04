@@ -64,63 +64,55 @@ export default function About() {
           </p>
         </div>
       </div>
-      <div className="abt1 grid justify-items-center text-center min-[780px]:flex min-[780px]:justify-between min-[780px]:items-center min-[780px]:text-left gap-10">
-        <div
-          className="about_studio_text"
-          style={{ maxWidth: "500px", margin: "0 auto" }}
-        >
-          <p className="joy_abt_name mb-10">A STUDIO FULL OF HEART & SOUL</p>
 
-          <p className="joy_abt_sub">
-            J-LUXURY is a luxury interior design studio dedicated to creating
-            timeless, intentional spaces. We specialize in residential,
-            commercial, and hospitality design that blends global sophistication
-            with Nigerian warmth.
+      <center>
+        <img className="susan" src="./cfo.jpg" />
+        <div className="abt_susan_div mt-10">
+          <p className="mb-10">
+            At Wood Wrap, we believe that stylish, elevated, and timeless
+            interiors can transform daily rituals into moments of relaxation and
+            inspiration. Our full-service approach, deep vendor relationships,
+            and commitment to overseeing every detail ensure that your home is
+            not only beautifully curated but also a place to be lived in and
+            loved for years to come
           </p>
+          <p className="scroll_text_minor mt-6">
+            Located in Red Bank, New Jersey, Salt Design Company is a
+            full-service interior design firm designing timeless and elevated
+            family homes throughout Monmouth County and beyond.
+          </p>
+          <div className=" flex justify-center gap-6">
+            <button className="scroll_btn">WORK TOGETHER </button>
+            <button className="scroll_btn">VIEW PORTFOLIO </button>
+          </div>
+        </div>
+      </center>
 
-       
-<Link href='./project'> 
-          <p className="view_project mt-6">View Projects</p>
-</Link>        </div>
 
-        <div className="flex justify-center">
-          <img className="joy_about_img" src="./madam.PNG" alt="Studio" />
+
+         <div className="flex woodwrap_abt_text1 justify-between scroll_animation">
+        <div className="flex-1 min-w-0 flex items-center justify-center">
+          <div className=" woodwrap_text_div ">
+            <p>
+              At Wood Wrap, we believe that stylish, elevated, and timeless
+              interiors can transform daily rituals into moments of relaxation
+              and inspiration.
+            </p>
+            <p className="mt-10">
+              Our full-service approach, deep vendor relationships, and
+              commitment to overseeing every detail ensure that your home is not
+              only beautifully curated but also a place to be lived in and loved
+              for years to come
+            </p>
+          </div>
+        </div>
+
+        <div className="flex-1 min-w-0">
+          <img className="w-full h-auto" src="./seas.jpg" />
         </div>
       </div>
 
-      <div className="abt2 grid justify-items-center text-center gap-10 min-[780px]:flex min-[780px]:justify-between min-[780px]:items-center min-[780px]:text-left">
-        {/* IMAGE */}
-        <div className="order-2 min-[780px]:order-1 flex justify-center">
-          <img
-            className="joy_about_img"
-            src="./ako.PNG"
-            alt="Design approach"
-          />
-        </div>
-
-        {/* TEXT */}
-        <div
-          className="about_studio_text order-1 min-[780px]:order-2"
-          style={{ maxWidth: "500px", margin: "0 auto" }}
-        >
-          <p className="joy_abt_name mb-10">Design APPROACH & Philosophy</p>
-
-          <p className="joy_abt_sub">
-            Our Philosophy: Clarity. Craftsmanship. Character. We believe luxury
-            is not excess. It is clarity of vision, excellence in execution, and
-            spaces that reflect you.
-          </p>
-
-          <p className="joy_abt_sub">
-            Every J-LUXURY project is rooted in 3 principles: 1. Function First—
-            Beautiful spaces must work for your life. 2. Bespoke Details— From
-            custom millwork to curated art, nothing is off-the-shelf. 3.
-            Seamless Experience—We manage the process so you enjoy the result.
-          </p>
-
-          <p className="view_project_btn">EXPLORE OUR SERVICE</p>
-        </div>
-      </div>
+   
 
       <FAQAccordion />
       <EnquiryForm />

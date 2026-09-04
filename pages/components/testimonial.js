@@ -4,11 +4,11 @@
 import { useEffect, useState } from "react";
 
 const testimonials = [
-  "Joy transformed our living room into something we never imagined — pure elegance.",
-  "Working with Joy was effortless. She understood our style before we even explained it.",
-  "Every corner of our home now feels intentional, thanks to Joy is incredible eye for detail.",
-  "Joy doesn't just design spaces, she designs experiences. Our kitchen is a masterpiece.",
-  "From concept to completion, Joy's professionalism and creativity exceeded every expectation.",
+  "Susan transformed our living room into something we never imagined — pure elegance.",
+  "Working with Susan was effortless. She understood our style before we even explained it.",
+  "Every corner of our home now feels intentional, thanks to Susan is incredible eye for detail.",
+  "Susan doesn't just design spaces, she designs experiences. Our kitchen is a masterpiece.",
+  "From concept to completion, Susan's professionalism and creativity exceeded every expectation.",
 ];
 
 export default function Testimonial() {

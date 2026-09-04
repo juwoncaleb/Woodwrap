@@ -11,22 +11,26 @@
   font-family: "Tenor Sans", sans-serif;
   font-weight: 400;
 }
+.divider_line{
+  border: 0.4px solid rgba(0, 0, 0, 0.421);
+  width: 60%;
+  margin-top: 80px;
+}
 
 /* ========================= */
 /* ABOUT */
 /* ========================= */
 
 .hero_second {
-  background-color: #d6d0c2;
   padding: 120px 0;
   color: #523b2d;
 }
 .joy_headshot {
-  height: 800px;
+  height: 600px;
 }
 
 .hero_second_div {
-  max-width: 600px;
+  max-width: 750px;
   font-size: 25px;
   font-family: "Tenor Sans", sans-serif;
 }
@@ -57,18 +61,36 @@
   margin-top: 15px;
   object-fit: cover;
 }
-
+.woodwrap_text_div{
+  max-width: 500px;
+  font-size: 20px;
+  font-family: "Tenor Sans", sans-serif;
+}
 .Select_project_name {
   font-family: "Tenor Sans", sans-serif;
   font-size: 18px;
   margin-top: 14px;
 }
-
+.scroll_text_minor{
+  font-size: 13px;
+}
+.scroll_big_text{
+  font-family: "Newsreader", serif;
+margin-top: 10px;
+margin-bottom: 10px;
+  font-size: 27px;
+}
+.scroll_header{
+  padding-top: 50px;
+}
 .view_project {
   font-family: "Tenor Sans", sans-serif;
   text-decoration: underline;
   font-size: 25px;
   margin-top: 70px;
+}
+.scroll_text{
+  max-width: 400px;
 }
 
 /* ========================= */
@@ -143,6 +165,7 @@
 }
 .diana_name {
   font-size: 55px;
+  text-align: left;
   font-family: "Baskervville", serif;
 }
 .second_div_header {
@@ -170,9 +193,14 @@
   color: white;
   padding: 100px 0;
 }
+.susan_div{
+  background-color: #F6F4F0 !important;
+
+}
 .joy_div {
   display: flex;
   justify-content: center;
+  padding-bottom: 80px;
 }
 .service_row {
   font-family: "Baskervville", serif;
@@ -191,6 +219,7 @@
   }
   .diana_name {
     font-size: 45px;
+    text-align: left;
     font-family: "Baskervville", serif;
   }
 }
@@ -198,6 +227,7 @@
 @media (max-width: 768px) {
   .diana_name {
     font-size: 38px;
+    text-align: left;
     font-family: "Baskervville", serif;
   }
   
@@ -238,7 +268,7 @@
     font-size: 14px;
   }
   .hero_second_div {
-    max-width: 600px;
+    max-width: 750px;
     font-size: 20px;
     font-family: "Tenor Sans", sans-serif;
   }

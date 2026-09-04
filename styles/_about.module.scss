@@ -1,5 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap");
 
+.susan{
+height: 550px;
+margin-top: 100px;
+}
+.woodwrap_abt_text1{
+  background-color: #E2DACF;
+  margin-top: 150px;
+}
+
+.abt_susan_div{
+  max-width: 950px;
+  font-size: 25px;
+  margin-bottom: 50px;
+  font-family: "Tenor Sans", sans-serif;
+}
 .firm_philosphy {
   font-family: "Newsreader", serif;
   padding-top: 160px;
@@ -42,11 +57,39 @@
   height: 400px;
   margin-top: 150px;
 }
-
+.about_studio_button {
+  border: 1px solid black;
+  height: 40px;
+  width: 180px;
+  font-size: 13px;
+  margin-top: 80px;
+}
+.scroll_btn{
+  border: 1px solid black;
+  height: 40px;
+  width: 180px;
+  font-size: 13px;
+  margin-top: 30px;
+}
+.home_btn {
+  max-width: 150px;
+}
+.test_name {
+  font-family: "Newsreader", serif;
+  font-size: 14px;
+  text-align: left;
+  margin-top: 20px;
+}
+.btn_text {
+  font-size: 12px;
+  margin-top: 50px;
+  text-align: left;
+}
 .design_title {
   font-family: "Newsreader", serif;
-  letter-spacing: 2px;
-  font-size: 14px;
+  font-size: 25px;
+  text-align: left;
+  font-weight: 400;
 }
 .diana_texts {
   max-width: 400px;
@@ -297,11 +340,11 @@
 
 @media (max-width: 768px) {
   .joy_abt_sub {
-  font-size: 15px;
-  font-family: "Tenor Sans", sans-serif;
-  margin-top: 5px;
-  text-align: left;
-}
+    font-size: 15px;
+    font-family: "Tenor Sans", sans-serif;
+    margin-top: 5px;
+    text-align: left;
+  }
   .diana_testimonial {
     font-size: 30px;
     color: white !important;
@@ -316,7 +359,7 @@
 }
 
 @media (max-width: 450px) {
-   .joy_about_img {
+  .joy_about_img {
     height: 450px;
   }
 }

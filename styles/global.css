@@ -18,7 +18,7 @@
   background: transparent;
   z-index: 50;
   padding: 20px 40px;
-  background-color: #f1ede4;
+  background-color: white;
   color: black !important;
 }
 
@@ -32,8 +32,8 @@
 }
 
 .heade_hidden {
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
   margin-top: 10px;
   font-family: "Montserrat", sans-serif;
   font-size: 15px;
@@ -76,21 +76,26 @@
   font-weight: 400;
 }
 
+.divider_line {
+  border: 0.4px solid rgba(0, 0, 0, 0.421);
+  width: 60%;
+  margin-top: 80px;
+}
+
 /* ========================= */
 /* ABOUT */
 /* ========================= */
 .hero_second {
-  background-color: #d6d0c2;
   padding: 120px 0;
   color: #523b2d;
 }
 
 .joy_headshot {
-  height: 800px;
+  height: 600px;
 }
 
 .hero_second_div {
-  max-width: 600px;
+  max-width: 750px;
   font-size: 25px;
   font-family: "Tenor Sans", sans-serif;
 }
@@ -121,10 +126,31 @@
      object-fit: cover;
 }
 
+.woodwrap_text_div {
+  max-width: 500px;
+  font-size: 20px;
+  font-family: "Tenor Sans", sans-serif;
+}
+
 .Select_project_name {
   font-family: "Tenor Sans", sans-serif;
   font-size: 18px;
   margin-top: 14px;
+}
+
+.scroll_text_minor {
+  font-size: 13px;
+}
+
+.scroll_big_text {
+  font-family: "Newsreader", serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 27px;
+}
+
+.scroll_header {
+  padding-top: 50px;
 }
 
 .view_project {
@@ -132,6 +158,10 @@
   text-decoration: underline;
   font-size: 25px;
   margin-top: 70px;
+}
+
+.scroll_text {
+  max-width: 400px;
 }
 
 /* ========================= */
@@ -209,6 +239,7 @@
 
 .diana_name {
   font-size: 55px;
+  text-align: left;
   font-family: "Baskervville", serif;
 }
 
@@ -237,9 +268,14 @@
   padding: 100px 0;
 }
 
+.susan_div {
+  background-color: #F6F4F0 !important;
+}
+
 .joy_div {
   display: flex;
   justify-content: center;
+  padding-bottom: 80px;
 }
 
 .service_row {
@@ -259,12 +295,14 @@
   }
   .diana_name {
     font-size: 45px;
+    text-align: left;
     font-family: "Baskervville", serif;
   }
 }
 @media (max-width: 768px) {
   .diana_name {
     font-size: 38px;
+    text-align: left;
     font-family: "Baskervville", serif;
   }
   .btn_wrapper {
@@ -302,7 +340,7 @@
     font-size: 14px;
   }
   .hero_second_div {
-    max-width: 600px;
+    max-width: 750px;
     font-size: 20px;
     font-family: "Tenor Sans", sans-serif;
   }
@@ -328,6 +366,23 @@
     max-width: 400px;
   }
 }
+.susan {
+  height: 550px;
+  margin-top: 100px;
+}
+
+.woodwrap_abt_text1 {
+  background-color: #E2DACF;
+  margin-top: 150px;
+}
+
+.abt_susan_div {
+  max-width: 950px;
+  font-size: 25px;
+  margin-bottom: 50px;
+  font-family: "Tenor Sans", sans-serif;
+}
+
 .firm_philosphy {
   font-family: "Newsreader", serif;
   padding-top: 160px;
@@ -380,10 +435,44 @@
   margin-top: 150px;
 }
 
+.about_studio_button {
+  border: 1px solid black;
+  height: 40px;
+  width: 180px;
+  font-size: 13px;
+  margin-top: 80px;
+}
+
+.scroll_btn {
+  border: 1px solid black;
+  height: 40px;
+  width: 180px;
+  font-size: 13px;
+  margin-top: 30px;
+}
+
+.home_btn {
+  max-width: 150px;
+}
+
+.test_name {
+  font-family: "Newsreader", serif;
+  font-size: 14px;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.btn_text {
+  font-size: 12px;
+  margin-top: 50px;
+  text-align: left;
+}
+
 .design_title {
   font-family: "Newsreader", serif;
-  letter-spacing: 2px;
-  font-size: 14px;
+  font-size: 25px;
+  text-align: left;
+  font-weight: 400;
 }
 
 .diana_texts {
