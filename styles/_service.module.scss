@@ -11,6 +11,9 @@
   object-fit: cover;
   display: block;
 }
+.section_text{
+  text-align: left !important;
+}
 @media (max-width: 780px) {
   .joy_about_img_full {
     height: 500px;

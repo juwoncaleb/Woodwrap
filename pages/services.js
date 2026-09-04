@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Plus, Minus } from "lucide-react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FAQAccordion from "./components/processfaq";
@@ -7,13 +6,35 @@ import EnquiryForm from "./components/enquiry";
 
 const images = ["/img2.webp"];
 
-export default function Services() {
-  const [openIndex, setOpenIndex] = useState(null);
-  const [current, setCurrent] = useState(0);
+const services = [
+  {
+    number: "01",
+    title: "Full Service",
+    body: "The solution for clients seeking a complete transformation of their existing spaces. Whether you've recently completed a renovation or simply want to refresh a room, our team is here to breathe new life into your interiors. We handle every detail, from material selection and lighting sourcing to custom furniture builds, layout planning, installation, and final styling. Our comprehensive service includes sourcing, production, delivery, and final styling, leaving you with a fully completed and personalized space.",
+  },
+  {
+    number: "02",
+    title: "New Construction",
+    body: "Our most comprehensive design service, tailored for new build projects. Recognizing the complexity of such projects, we bring our full expertise to guide you through every stage. We collaborate closely with architects and contractors to craft a cohesive vision from conceptualization to final execution. From spatial planning to bespoke furniture, fixtures, and finishes, we ensure every aspect of your project is thoughtfully curated.",
+  },
+  {
+    number: "03",
+    title: "Remodel & Furniture Restoration",
+    body: "Renovating a home or restoring existing furniture can be an overwhelming process. Our service is the ideal solution for transforming existing spaces and pieces with ease. We work closely with contractors and craftsmen, guiding you through every step, from initial plans to selecting materials, finishes, and custom furnishings. From start to finish, our team ensures a cohesive and personalized result.",
+  },
+  {
+    number: "04",
+    title: "Virtual Consultations",
+    body: "Regardless of your location, connect with our design team in a personalized video consultation (choose from 30 or 60-minute sessions) where we'll guide you through design decisions and help you create a space you'll love living in.",
+    pricing: [
+      { label: "30 Minute Session", price: "₦75,000" },
+      { label: "60 Minute Session", price: "₦125,000" },
+    ],
+  },
+];
 
-  const toggle = (i) => {
-    setOpenIndex(openIndex === i ? null : i);
-  };
+export default function Services() {
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -43,110 +64,185 @@ export default function Services() {
 
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
           <p className="Hero_Heqd_text text-center m-0">
-            INTERIOR Design Services
+            Curated Interior Design{" "}
           </p>
           <p className="Hero_Heqd_text text-center m-0">
-            for Soulful, Refined Living
+            for a Life Well Lived
           </p>
         </div>
       </div>
+
       <div className="hero_second">
         <center>
           <div className="hero_second_div">
             <p>
-              We craft refined spaces that feel like a sanctuary — soulful,
-              peaceful, and beautifully yours.
+              WOODWRAP is a full-service interior design firm specializing in
+              custom, high-end residential projects. We offer a range of
+              specialized services geared towards clients seeking a cohesive
+              design through inspired concepts, effective planning and
+              project management.
             </p>
           </div>
         </center>
       </div>
-      <div className="flex flex-col md:flex-row abt1 items-stretch">
-        <div className="w-full md:w-1/2">
-          <img
-            className="joy_about_img_full w-full h-full object-cover"
-            src="/aru.jpg"
-            alt="Lagos"
-          />
-        </div>
 
-        <div className="about_studio_text w-full md:w-1/2 flex flex-col justify-center px-6 py-10 md:py-0">
-          <p className="joy_abt_name mb-10">Residential Interior Design</p>
+      <div className="flex flex-col md:flex-row abt1 items-stretch justify-center">
+        <section className="services-section">
+          <div className="services-grid">
+            {services.map((service) => (
+              <div className="service" key={service.number}>
+                <div className="service-heading">
+                  <span className="service-number">{service.number}</span>
+                  <h3>{service.title}</h3>
+                </div>
+                <p>{service.body}</p>
 
-          <p className="joy_abt_sub">
-            We offer residential interior design services, seamlessly blending
-            interior architecture with bespoke design to create truly
-            personalised living spaces. Luxury homes, apartments, and penthouses
-            tailored to your lifestyle.
-          </p>
+                {service.pricing && (
+                  <div className="service-pricing">
+                    {service.pricing.map((tier) => (
+                      <div className="pricing-tier" key={tier.label}>
+                        <span className="pricing-label">
+                          {tier.label} - {tier.price}
+                        </span>
+                        <button type="button" className="book-button">
+                          Book now
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
 
-          <p className="joy_abt_sub">
-            Our approach centres on understanding each clients lifestyle and
-            values, ensuring every detail is tailored to their specific needs.
-            With a commitment to sustainability and exceptional attention to
-            detail, we go beyond aesthetics to transform homes into sanctuaries
-            of comfort, elegance, and distinctive style.
-          </p>
+          <style jsx>{`
+            .services-section {
+              background: #f4f1ea;
+              padding: 96px 24px;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+            }
 
-          <p className="view_project_btn">BOOK A CONSULTATION</p>
-        </div>
-      </div>
+            .services-grid {
+              width: 100%;
+              max-width: 1160px;
+              margin: 0 auto;
+              display: grid;
+              grid-template-columns: repeat(2, minmax(0, 1fr));
+              column-gap: 96px;
+              row-gap: 80px;
+            }
 
-      <div className="flex flex-col-reverse md:flex-row abt1 items-stretch">
-        <div className="about_studio_text w-full md:w-1/2 flex flex-col justify-center px-6 py-10 md:px-16 md:py-0">
-          <p className="joy_abt_name mb-10">Procurement and Installation</p>
+            .service {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              text-align: left;
+              max-width: 34em;
+            }
 
-          <p className="joy_abt_sub">
-            We recognise the critical role that the procurement of furniture,
-            fixtures, and equipment (FF&E) plays in bringing design concepts to
-            life.
-          </p>
+            .service-heading {
+              display: flex;
+              align-items: baseline;
+              justify-content: flex-start;
+              gap: 14px;
+              margin-bottom: 20px;
+            }
 
-          <p className="joy_abt_sub">
-            Our tailored procurement service is designed to deliver your vision
-            within budget, while never compromising on quality or style. We
-            source directly from trusted manufacturers and suppliers to ensure
-            each piece aligns with your expectations and financial plan.
-          </p>
-        </div>
+            .service-number {
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                sans-serif;
+              font-size: 0.75rem;
+              color: #2b2b28;
+            }
 
-        <div className="w-full md:w-1/2">
-          <img
-            className="joy_about_img_full w-full h-full object-cover"
-            src="/curtaun.png"
-            alt="Lagos"
-          />
-        </div>
-      </div>
+            .service h3 {
+              font-family: "Playfair Display", Georgia, serif;
+              font-size: 1.75rem;
+              font-weight: 500;
+              color: #2b2b28;
+              margin: 0;
+            }
 
-      <div className="flex flex-col md:flex-row abt1 items-stretch">
-        <div className="w-full md:w-1/2">
-          <img
-            className="joy_about_img_full w-full h-full object-cover"
-            src="/room.jpg"
-            alt="Lagos"
-          />
-        </div>
+            .service p {
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                sans-serif;
+              font-size: 0.9rem;
+              line-height: 1.75;
+              color: #4a4a45;
+              margin: 0;
+              text-align: left;
+            }
 
-        <div className="about_studio_text w-full md:w-1/2 flex flex-col justify-center px-6 py-10 md:px-16 md:py-0">
-          <p className="joy_abt_name mb-10">Commercial Interior Design</p>
+            .service-pricing {
+              display: flex;
+              justify-content: flex-start;
+              gap: 40px;
+              margin-top: 28px;
+              flex-wrap: wrap;
+            }
 
-          <p className="joy_abt_sub">
-            We deliver commercial interior design services that fuse
-            architectural precision with bespoke creativity, crafting workspaces
-            that reflect each brand  identity and purpose.
-          </p>
+            .pricing-tier {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 12px;
+            }
 
-          <p className="joy_abt_sub">
-            Our process starts with a deep understanding of each client s
-            business, culture, and goals, so every design decision serves both
-            function and brand experience. Guided by sustainable practices and
-            meticulous attention to detail, we shape offices, retail spaces, and
-            hospitality environments into places that inspire productivity,
-            engagement, and lasting impression.
-          </p>
+            .pricing-label {
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                sans-serif;
+              font-size: 0.85rem;
+              color: #4a4a45;
+            }
 
-          <p className="view_project_btn">BOOK A CONSULTATION</p>
-        </div>
+            .book-button {
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                sans-serif;
+              font-size: 0.75rem;
+              letter-spacing: 0.08em;
+              text-transform: uppercase;
+              background: transparent;
+              border: 1px solid #2b2b28;
+              color: #2b2b28;
+              padding: 14px 28px;
+              cursor: pointer;
+              transition: background 0.2s ease, color 0.2s ease;
+            }
+
+            .book-button:hover {
+              background: #2b2b28;
+              color: #f4f1ea;
+            }
+
+            .book-button:focus-visible {
+              outline: 2px solid #2b2b28;
+              outline-offset: 3px;
+            }
+
+            @media (max-width: 860px) {
+              .services-section {
+                padding: 64px 20px;
+              }
+
+              .services-grid {
+                grid-template-columns: 1fr;
+                row-gap: 56px;
+                max-width: 480px;
+              }
+
+              .service h3 {
+                font-size: 1.5rem;
+              }
+
+              .service-pricing {
+                flex-direction: column;
+                gap: 24px;
+              }
+            }
+          `}</style>
+        </section>
       </div>
 
       <FAQAccordion />

@@ -1,188 +1,181 @@
-"use client";
-
-import { useState } from "react";
+import Image from "next/image";
 import Header from "./components/Header";
-import MyApp from "./components/meeting";
 import Footer from "./components/Footer";
 
-export default function ContactSection() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    postcode: "",
-    message: "",
-    preferredContact: "",
-  });
-  const [status, setStatus] = useState("idle"); // idle | submitting | success | error
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("submitting");
-
-    try {
-      // Replace with your actual endpoint / API route
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-
-      if (!res.ok) throw new Error("Request failed");
-
-      setStatus("success");
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-        postcode: "",
-        message: "",
-        preferredContact: "",
-      });
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-    }
-  };
-
+export default function ContactSplit() {
   return (
     <div>
       <Header />
-      <div className="page_content">
-        <section className="w-full bg-[#a89a8a]">
-          <div className="mx-auto flex max-w-[1800px] flex-col lg:flex-row">
-            {/* Left: copy + form */}
-            <div className="flex w-full flex-col justify-center px-6 py-16 sm:px-10 md:px-16 lg:w-1/2 lg:px-20 xl:px-28">
-              <h2 className="contact_header text-[26px] uppercase leading-snug tracking-[0.12em] text-[#3f3a34] sm:text-3xl md:text-[32px]">
-                Get in touch
-                <br />
-                with our team
-              </h2>
+      <section className="contact-split">
+        <div className="contact-image">
+          <Image
+            src="/joy.jpg"
+            alt="Founder working in the studio"
+            fill
+            sizes="(max-width: 900px) 100vw, 50vw"
+            style={{ objectFit: "cover" }}
+            priority
+          />
+        </div>
 
-              <p className="mt-6 max-w-md text-[15px] leading-relaxed text-[#4a453e]">
-                Whether you&apos;re ready to begin your project or simply have a
-                few questions, we&apos;d love to hear from you.
-              </p>
+        <div className="contact-info">
+          <h2>We are honored that you are interested in working together!</h2>
 
-              <form
-                onSubmit={handleSubmit}
-                className="mt-10 flex flex-col gap-7"
-              >
-                <Field
-                  label="Your Name"
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  required
-                />
-                <Field
-                  label="Your Email"
-                  name="email"
-                  type="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  required
-                />
-                <Field
-                  label="Your Phone Number"
-                  name="phone"
-                  type="tel"
-                  value={form.phone}
-                  onChange={handleChange}
-                />
-                <Field
-                  label="Your Project's Postcode"
-                  name="postcode"
-                  value={form.postcode}
-                  onChange={handleChange}
-                />
-                <Field
-                  label="Your Message"
-                  name="message"
-                  as="textarea"
-                  value={form.message}
-                  onChange={handleChange}
-                  rows={2}
-                />
-                <Field
-                  label="Preferred Contact Method"
-                  name="preferredContact"
-                  value={form.preferredContact}
-                  onChange={handleChange}
-                />
+          <p className="intro">
+            Please complete our inquiry form to tell us a bit more about your
+            project.
+          </p>
 
-                <button
-                  type="submit"
-                  disabled={status === "submitting"}
-                  className="mt-4 w-fit bg-[#4a3628] px-10 py-4 text-[13px] font-medium uppercase tracking-[0.15em] text-[#f0ece4] transition-opacity hover:opacity-90 disabled:opacity-60 contact_btn"
-                >
-                  {status === "submitting" ? "Sending..." : "Submit"}
-                </button>
+          <div className="details">
+            <p>
+              14 Admiralty Way
+              <br />
+              Lekki Phase 1, Lagos
+            </p>
 
-                {status === "success" && (
-                  <p className="text-sm text-[#3f3a34]">
-                    Thanks — we&apos;ll be in touch shortly.
-                  </p>
-                )}
-                {status === "error" && (
-                  <p className="text-sm text-red-700">
-                    Something went wrong. Please try again.
-                  </p>
-                )}
-              </form>
-            </div>
+            <p>Monday - Friday 9am - 5pm</p>
 
-            {/* Right: image */}
-            <div className="relative w-full lg:w-1/2">
-              <div className="relative h-[420px] w-full sm:h-[560px] lg:h-full lg:min-h-[720px]">
-                <img
-                  src="/lagos.jpg"
-                  alt="Styled shelving with ceramic vases, books, and decor"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
+            <p>+234 801 234 5678</p>
+
+            <p>info@yourstudio.com</p>
           </div>
-        </section>
-        <center>
-          <h2 className="bookappoitment ">Book an Appointment </h2>
-        </center>
-        <MyApp />
-        <Footer />
-      </div>
-    </div>
-  );
-}
 
-function Field({
-  label,
-  name,
-  value,
-  onChange,
-  type = "text",
-  as = "input",
-  rows,
-  required,
-}) {
-  const Tag = as;
-  return (
-    <div className="relative">
-      <Tag
-        id={name}
-        name={name}
-        type={as === "input" ? type : undefined}
-        rows={as === "textarea" ? rows : undefined}
-        value={value}
-        onChange={onChange}
-        required={required}
-        placeholder={label}
-        className="peer w-full resize-none border-0 border-b border-[#4a453e]/40 bg-transparent pb-2 text-[15px] text-[#3f3a34] placeholder-[#5c574f] outline-none transition-colors focus:border-[#3f3a34] focus:placeholder-transparent"
-      />
+          <div className="actions">
+            <button type="button" className="btn">
+              Let&apos;s connect
+            </button>
+            <button type="button" className="btn">
+              View our work
+            </button>
+          </div>
+        </div>
+
+        <style jsx>{`
+          .contact-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #f4f1ea;
+            min-height: 1040px;
+          }
+
+          .contact-image {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 480px;
+            background: #e4e0d6;
+          }
+
+          .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 64px 48px;
+            gap: 28px;
+          }
+
+          .contact-info h2 {
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 2rem;
+            font-weight: 500;
+            line-height: 1.3;
+            color: #2b2b28;
+            max-width: 20em;
+            margin: 0;
+          }
+
+          .intro {
+            font-family:
+              -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 0.95rem;
+            color: #4a4a45;
+            margin: 0;
+          }
+
+          .details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+          }
+
+          .details p {
+            font-family:
+              -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #9a7a52;
+            line-height: 1.6;
+            margin: 0;
+          }
+
+          .actions {
+            display: flex;
+            gap: 16px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+
+          .btn {
+            font-family:
+              -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            background: transparent;
+            border: 1px solid #2b2b28;
+            color: #2b2b28;
+            padding: 14px 28px;
+            cursor: pointer;
+            transition:
+              background 0.2s ease,
+              color 0.2s ease;
+          }
+
+          .btn:hover {
+            background: #2b2b28;
+            color: #f4f1ea;
+          }
+
+          .btn:focus-visible {
+            outline: 2px solid #2b2b28;
+            outline-offset: 3px;
+          }
+
+          @media (max-width: 900px) {
+            .contact-split {
+              grid-template-columns: 1fr;
+            }
+
+            .contact-image {
+              min-height: 360px;
+            }
+
+            .contact-info {
+              padding: 48px 24px;
+            }
+
+            .contact-info h2 {
+              font-size: 1.6rem;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .actions {
+              flex-direction: column;
+              width: 100%;
+            }
+
+            .btn {
+              width: 100%;
+            }
+          }
+        `}</style>
+      </section>
+      <Footer />
     </div>
   );
 }
