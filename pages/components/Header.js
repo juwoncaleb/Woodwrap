@@ -21,7 +21,7 @@ export default function Header() {
         <Link href="/">
           <img
             className="logo_header h-10 w-auto"
-            src="/woodwrap.png"
+            src="/woodlogo.png"
             alt="Logo"
           />
         </Link>

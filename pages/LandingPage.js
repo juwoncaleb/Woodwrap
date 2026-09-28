@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import { Plus, Minus } from "lucide-react";
 import Link from "next/link";
 import Testimonial from "./components/testimonial";
+import StatsBand from "./components/stat";
 
 const images = ["/im.jpg", "/im1.jpg", "/im2.jpg", "/im3.jpg"];
 const heroImages = ["/hero2.webp", "/hero1.webp", "/img3.jpg"];
@@ -88,7 +89,7 @@ export default function LandingPage() {
           <center>
             <div className="hero_second_div">
               <p>
-                At Wood Wrap, we believe that stylish, elevated, and timeless
+                At Woodwrap, we believe that stylish, elevated, and timeless
                 interiors can transform daily rituals into moments of relaxation
                 and inspiration. Our full-service approach, deep vendor
                 relationships, and commitment to overseeing every detail ensure
@@ -149,7 +150,7 @@ export default function LandingPage() {
         <div className="flex-1 min-w-0 flex items-center justify-center">
           <div className=" woodwrap_text_div">
             <p>
-              At Wood Wrap, we believe that stylish, elevated, and timeless
+              At Woodwrap, we believe that stylish, elevated, and timeless
               interiors can transform daily rituals into moments of relaxation
               and inspiration.
             </p>
@@ -176,7 +177,7 @@ export default function LandingPage() {
           <div className="scroll_text">
             <div className=" woodwrap_text_div">
               <p>
-                At Wood Wrap, we believe that stylish, elevated, and timeless
+                At Woodwrap, we believe that stylish, elevated, and timeless
                 interiors can transform daily rituals into moments of relaxation
                 and inspiration.
               </p>
@@ -188,6 +189,9 @@ export default function LandingPage() {
         </div>
       </div>
 
+      <div className="statband">
+        <StatsBand />
+      </div>
       {/* Process */}
       <div className="list_service mb-20 flex flex-col min-[451px]:flex-row items-center justify-center gap-10 md:gap-16">
         {/* IMAGE */}

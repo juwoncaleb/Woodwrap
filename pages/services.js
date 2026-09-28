@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FAQAccordion from "./components/processfaq";
 import EnquiryForm from "./components/enquiry";
+import ServicesShowcase from "./components/display";
+import Testimonials from "./components/testimonies";
 
 const images = ["/img2.webp"];
 
@@ -72,21 +74,11 @@ export default function Services() {
         </div>
       </div>
 
-      <div className="hero_second">
-        <center>
-          <div className="hero_second_div">
-            <p>
-              WOODWRAP is a full-service interior design firm specializing in
-              custom, high-end residential projects. We offer a range of
-              specialized services geared towards clients seeking a cohesive
-              design through inspired concepts, effective planning and
-              project management.
-            </p>
-          </div>
-        </center>
-      </div>
+    
 
-      <div className="flex flex-col md:flex-row abt1 items-stretch justify-center">
+     
+      <ServicesShowcase />
+       <div className="flex flex-col md:flex-row abt1 items-stretch justify-center">
         <section className="services-section">
           <div className="services-grid">
             {services.map((service) => (
@@ -151,8 +143,8 @@ export default function Services() {
             }
 
             .service-number {
-              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                sans-serif;
+              font-family:
+                -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
               font-size: 0.75rem;
               color: #2b2b28;
             }
@@ -166,8 +158,8 @@ export default function Services() {
             }
 
             .service p {
-              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                sans-serif;
+              font-family:
+                -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
               font-size: 0.9rem;
               line-height: 1.75;
               color: #4a4a45;
@@ -191,15 +183,15 @@ export default function Services() {
             }
 
             .pricing-label {
-              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                sans-serif;
+              font-family:
+                -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
               font-size: 0.85rem;
               color: #4a4a45;
             }
 
             .book-button {
-              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                sans-serif;
+              font-family:
+                -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
               font-size: 0.75rem;
               letter-spacing: 0.08em;
               text-transform: uppercase;
@@ -208,7 +200,9 @@ export default function Services() {
               color: #2b2b28;
               padding: 14px 28px;
               cursor: pointer;
-              transition: background 0.2s ease, color 0.2s ease;
+              transition:
+                background 0.2s ease,
+                color 0.2s ease;
             }
 
             .book-button:hover {
@@ -244,9 +238,8 @@ export default function Services() {
           `}</style>
         </section>
       </div>
-
       <FAQAccordion />
-      <EnquiryForm />
+      <Testimonials/>
       <Footer />
     </div>
   );

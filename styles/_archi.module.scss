@@ -1,19 +1,442 @@
-.archi_text{
-    max-width: 500px;
-      font-family: "Baskervville", serif;
-      margin-top: 50px;
+/* ---------- Your existing classes (unchanged) ---------- */
+.archi_text {
+  max-width: 500px;
+  font-family: "Baskervville", serif;
+  margin-top: 50px;
+}
 
+.archi_media {
+  margin-top: 100px;
 }
-.archi_media{
-    margin-top: 100px;
+
+.arch_plan {
+  font-family: "Baskervville", serif;
+  margin-top: 100px;
 }
-.arch_plan{
-          font-family: "Baskervville", serif;
-margin-top: 100px;
+
+.section_texts {
+  margin-bottom: 30px;
+  font-family: "Baskervville", serif !important;
+  font-size: 30px !important;
+  margin-top: 50px;
 }
-.section_texts{
-    margin-bottom: 30px;
-              font-family: "Baskervville", serif !important;
-font-size: 30px !important;
-    margin-top: 50px;
+
+/* ---------- Services showcase (matches the class names in ServicesShowcase.js) ---------- */
+.services {
+  --ink: #3a1f14;
+  --body: #4a4a4a;
+  --rule: #cfcac3;
+  --fade: 500ms;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+  background: #fff;
+  padding: 2rem 0;
+  margin: 100px 0; /* 100px above and below the whole component */
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 6vw, 5rem);
+    align-items: start;
+  }
+
+  /* Left column: every layer sits in the same grid cell */
+  &__left {
+    display: grid;
+  }
+
+  &__layer {
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+    /* visibility flips after the fade-out so hidden layers leave the tab order */
+    transition: opacity var(--fade) var(--ease), visibility 0s linear var(--fade);
+
+    &.is-visible {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity var(--fade) var(--ease) 120ms, visibility 0s linear 0s;
+    }
+  }
+
+  ul#{&}__layer {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__list-button,
+  &__detail-heading {
+    appearance: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+    color: var(--ink);
+    font-family: "Baskervville", "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(1.2rem, 1.6vw, 1.5rem);
+    font-weight: 500;
+    line-height: 1.2;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 4px;
+    }
+  }
+
+  /* Detail panel */
+  &__detail {
+    padding-top: 1.5rem;
+  }
+
+  &__rule {
+    border: 0;
+    border-top: 1px solid var(--rule);
+    margin: 1.25rem 0 1.5rem;
+  }
+
+  &__description {
+    margin: 0 0 1.75rem;
+    max-width: 62ch;
+    color: var(--body);
+    font-family: "Mulish", system-ui, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  &__cta {
+    display: inline-block;
+    padding: 0.95rem 1.6rem;
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+    font-family: "Mulish", system-ui, sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 250ms var(--ease), color 250ms var(--ease);
+
+    &:hover {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 4px;
+    }
+  }
+
+  /* Right column: stacked images */
+  &__right {
+    position: relative;
+    aspect-ratio: 695 / 800;
+    overflow: hidden;
+    background: #f4f1ec;
+  }
+
+  &__image {
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity var(--fade) var(--ease);
+
+    &.is-visible {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 900px) {
+    &__inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__layer,
+    &__layer.is-visible,
+    &__image {
+      transition-duration: 0.01ms;
+      transition-delay: 0s;
+    }
+  }
+}
+
+.stats {
+  --bg: #f8f6f1;
+  --band: #f3f0e8;
+  --ink: #1c1a16;
+  --label: #7d7264;
+  --line: #e4dfd3;
+
+  background: var(--bg);
+}
+
+/* ---------- Band ---------- */
+.stats__band {
+  background: var(--band);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 4.5rem 1.5rem;
+}
+
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stats__item {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse; /* number on top, label below */
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+/* Short vertical divider between columns */
+.stats__item + .stats__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 92px;
+  transform: translateY(-50%);
+  background: var(--line);
+}
+
+.stats__value {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Baskervville", "Libre Baskerville", Georgia, serif;
+  font-size: clamp(2.75rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.stats__label {
+  color: var(--label);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+/* ---------- Button ---------- */
+.stats__cta-wrap {
+  display: flex;
+  justify-content: center;
+  padding: clamp(3.5rem, 9vw, 8rem) 1.5rem;
+}
+
+.stats__cta {
+  display: inline-block;
+  padding: 1.15rem 2.5rem;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  color: #fff;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 250ms ease, color 250ms ease;
+}
+
+.stats__cta:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+.stats__cta:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+/* ---------- Tablet / mobile: 2 x 2 grid ---------- */
+@media (max-width: 800px) {
+  .stats__band {
+    padding: 3rem 1rem;
+  }
+
+  .stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2.5rem;
+  }
+
+  /* Divider only between the two columns */
+  .stats__item:nth-child(odd)::before {
+    display: none;
+  }
+
+  .stats__item:nth-child(even)::before {
+    height: 70px;
+  }
+
+  .stats__label {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats__cta {
+    width: 100%;
+    text-align: center;
+  }
+
+  .stats__cta-wrap {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+.stats {
+  --bg: #f8f6f1;
+  --ink: #1c1a16;
+  --label: #7d7264;
+  --line: #e4dfd3;
+
+  background: var(--bg);
+}
+
+/* ---------- Band ---------- */
+.stats__band {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 4.5rem 1.5rem;
+}
+
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stats__item {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse; /* number on top, label below */
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+/* Short vertical divider between columns */
+.stats__item + .stats__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 92px;
+  transform: translateY(-50%);
+  background: var(--line);
+}
+
+.stats__value {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Baskervville", "Libre Baskerville", Georgia, serif;
+  font-size: clamp(2.75rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.stats__label {
+  color: var(--label);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+/* ---------- Button ---------- */
+.stats__cta-wrap {
+  display: flex;
+  justify-content: center;
+  padding: clamp(3.5rem, 9vw, 8rem) 1.5rem;
+}
+
+.stats__cta {
+  display: inline-block;
+  padding: 1.15rem 2.5rem;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  color: #fff;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 250ms ease, color 250ms ease;
+}
+
+.stats__cta:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+.stats__cta:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+/* ---------- Tablet / mobile: 2 x 2 grid ---------- */
+@media (max-width: 800px) {
+  .stats__band {
+    padding: 3rem 1rem;
+  }
+
+  .stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2.5rem;
+  }
+
+  /* Divider only between the two columns */
+  .stats__item:nth-child(odd)::before {
+    display: none;
+  }
+
+  .stats__item:nth-child(even)::before {
+    height: 70px;
+  }
+
+  .stats__label {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats__cta {
+    width: 100%;
+    text-align: center;
+  }
+
+  .stats__cta-wrap {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
 }
