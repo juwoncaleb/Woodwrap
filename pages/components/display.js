@@ -1,7 +1,6 @@
-"use client";
-
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 // Image shown on the right when nothing is open
 const DEFAULT_IMAGE = {
@@ -60,6 +59,7 @@ const SERVICES = [
     alt: "Bathroom interior",
   },
 ];
+
 export default function ServicesShowcase() {
   const [active, setActive] = useState(null);
   const isOpen = active !== null;
@@ -113,13 +113,13 @@ export default function ServicesShowcase() {
                 </button>
                 <hr className="services__rule" />
                 <p className="services__description">{service.description}</p>
-                <a
+                <Link
                   href="/contact"
                   className="services__cta"
                   tabIndex={open ? 0 : -1}
                 >
                   Get in touch
-                </a>
+                </Link>
               </div>
             );
           })}

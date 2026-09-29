@@ -1,18 +1,28 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
 
   const rightLinks = [
     { label: "ABOUT", href: "/about" },
-    { label: "SERVICE", href: "/service" },
-    { label: "PORTFOLIO", href: "/project" },
+    { label: "SERVICE", href: "/service" }, // change to /services if your file is services.js
+    { label: "PORTFOLIO", href: "/projects" }, // matches the "projects" folder
     { label: "BLOG", href: "/blog" },
     { label: "CONTACT", href: "/contact" },
   ];
+
+  // Close the mobile menu whenever the route changes
+  useEffect(() => {
+    const handleRouteChange = () => setMenuOpen(false);
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => router.events.off("routeChangeComplete", handleRouteChange);
+  }, [router.events]);
+
+  // Highlights the link for the current page (also matches sub-pages like /blog/my-post)
+  const isActive = (href) => router.pathname === href || router.pathname.startsWith(href + "/");
 
   return (
     <header className="header_bg relative h-20">
@@ -32,7 +42,9 @@ export default function Header() {
             <Link
               key={link.label}
               href={link.href}
-              className="heade_hidden cursor-pointer"
+              className={`heade_hidden cursor-pointer ${
+                isActive(link.href) ? "font-bold underline" : ""
+              }`}
             >
               {link.label}
             </Link>
@@ -71,12 +83,14 @@ export default function Header() {
             <Link
               key={link.label}
               href={link.href}
-              className="heade_hidden cursor-pointer"
+              className={`heade_hidden cursor-pointer ${
+                isActive(link.href) ? "font-bold underline" : ""
+              }`}
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
             </Link>
-          ))}
+          ))}npm 
         </div>
       )}
     </header>
