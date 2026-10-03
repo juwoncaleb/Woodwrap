@@ -6,7 +6,6 @@ margin-top: 100px;
 }
 .woodwrap_abt_text1{
   background-color: #E2DACF;
-  margin-top: 150px;
 }
 
 .abt_susan_div{
@@ -62,7 +61,7 @@ margin-top: 100px;
   height: 40px;
   width: 180px;
   font-size: 13px;
-  margin-top: 80px;
+  margin-top: 40px;
 }
 .scroll_btn{
   border: 1px solid black;
@@ -340,9 +339,23 @@ margin-top: 100px;
   .faqquestion {
     font-size: 30px;
   }
+  .design_title {
+  font-family: "Newsreader", serif;
+  font-size: 18px;
+  text-align: left;
+  font-weight: 400;
 }
 
-@media (max-width: 768px) {
+}
+
+@media (max-width: 790px) {
+  .about_studio_button {
+  border: 1px solid black;
+  height: 40px;
+  width: 180px;
+  font-size: 13px;
+  margin-top: 40px;
+}
   .joy_abt_sub {
     font-size: 15px;
     font-family: "Tenor Sans", sans-serif;

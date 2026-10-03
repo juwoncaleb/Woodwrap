@@ -96,13 +96,13 @@
 }
 
 .hero_second_div {
-  max-width: 750px;
+  max-width: 1050px;
   font-size: 25px;
   font-family: "Tenor Sans", sans-serif;
 }
 
 .about_joy {
-  padding: 100px;
+  padding: 50px;
   max-width: 600px;
 }
 
@@ -270,7 +270,7 @@
 }
 
 .susan_div {
-  background-color: #F6F4F0 !important;
+  background-color: #f6f4f0 !important;
 }
 
 .joy_div {
@@ -287,6 +287,9 @@
 /* RESPONSIVE */
 /* ========================= */
 @media (max-width: 1029px) {
+  .joy_headshot {
+    height: 450px;
+  }
   .Hero_Heqd_text {
     font-size: 40px;
   }
@@ -299,8 +302,29 @@
     text-align: left;
     font-family: "Baskervville", serif;
   }
+  .hero_second_div {
+    max-width: 750px;
+    font-size: 17px;
+    font-family: "Tenor Sans", sans-serif;
+  }
 }
 @media (max-width: 768px) {
+  .woodwrap_text_div {
+    max-width: 500px;
+    font-size: 16px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-family: "Tenor Sans", sans-serif;
+  }
+  .scroll_header {
+    padding-top: 20px;
+  }
+  .scroll_big_text {
+    font-family: "Newsreader", serif;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    font-size: 20px;
+  }
   .diana_name {
     font-size: 38px;
     text-align: left;
@@ -315,6 +339,10 @@
   .selected_project {
     font-size: 35px;
   }
+  .scroll_text {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
   .interior_serivce_text {
     text-align: left;
   }
@@ -322,8 +350,8 @@
     height: 500px;
   }
   .about_joy {
-    padding: 100px;
-    max-width: 400px;
+    padding: 0px;
+    max-width: 500px;
   }
   .selected_project_div {
     padding-left: 30px;
@@ -348,6 +376,13 @@
   /* 🔥 FIXED: only ONE rule now */
 }
 @media (max-width: 450px) {
+  .hero_second_div {
+    max-width: 750px;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 18px;
+    font-family: "Tenor Sans", sans-serif;
+  }
   .testimonial_texts {
     font-family: "Baskerville", serif;
     font-size: 28px;
@@ -360,7 +395,13 @@
     font-size: 30px;
   }
   .joy_headshot {
+    height: 450px;
     margin-top: 30px;
+  }
+  .second_div_header {
+    font-size: 40px;
+    font-family: "Baskervville", serif;
+    line-height: 47px;
   }
   .about_joy {
     padding: 50px;
@@ -374,7 +415,6 @@
 
 .woodwrap_abt_text1 {
   background-color: #E2DACF;
-  margin-top: 150px;
 }
 
 .abt_susan_div {
@@ -441,7 +481,7 @@
   height: 40px;
   width: 180px;
   font-size: 13px;
-  margin-top: 80px;
+  margin-top: 40px;
 }
 
 .scroll_btn {
@@ -731,8 +771,21 @@
   .faqquestion {
     font-size: 30px;
   }
+  .design_title {
+    font-family: "Newsreader", serif;
+    font-size: 18px;
+    text-align: left;
+    font-weight: 400;
+  }
 }
-@media (max-width: 768px) {
+@media (max-width: 790px) {
+  .about_studio_button {
+    border: 1px solid black;
+    height: 40px;
+    width: 180px;
+    font-size: 13px;
+    margin-top: 40px;
+  }
   .joy_abt_sub {
     font-size: 15px;
     font-family: "Tenor Sans", sans-serif;

@@ -84,10 +84,10 @@ export default function LandingPage() {
       </div>
 
       {/* About */}
-      <div className="susan_div">
-        <div className="hero_second">
-          <center>
-            <div className="hero_second_div">
+      <div className="susan_div w-full overflow-x-hidden">
+        <div className="hero_second px-5 sm:px-8 md:px-12 py-10 sm:py-14 md:py-20">
+          <div className="flex flex-col items-center text-center">
+            <div className="hero_second_div w-full max-w-3xl">
               <p>
                 At Woodwrap, we believe that stylish, elevated, and timeless
                 interiors can transform daily rituals into moments of relaxation
@@ -98,134 +98,191 @@ export default function LandingPage() {
               </p>
             </div>
             <hr className="divider_line" />
-          </center>
+          </div>
         </div>
 
-        <div className="joy_div flex flex-col-reverse min-[450px]:flex-row items-center justify-center gap-6 text-center">
-          <div className="about_joy">
-            <p className="design_title">
+        <div className="joy_div !flex !flex-col min-[791px]:!flex-row items-center justify-center gap-8 min-[791px]:gap-12 !px-5 sm:!px-8 min-[791px]:!px-12 !pb-12 min-[791px]:!pb-20 !w-full !max-w-full !h-auto text-center box-border">
+          {/* Photo: top at 790px and below, right above that */}
+          <div className="">
+            <img
+              className="joy_headshot "
+              src="./cfo.jpg"
+              alt="Joy"
+              loading="lazy"
+            />
+          </div>
+
+          {/* Quote: below the photo at 790px and below, left above that */}
+          <div className="about_joy order-2 min-[791px]:order-1 !w-full min-[791px]:!w-1/2 max-w-xl flex flex-col items-center min-w-0">
+            <p className="design_title !text-lg sm:!text-xl min-[791px]:!text-2xl !leading-relaxed">
               “Hiring Susan was the best thing we’ve ever done. They understood
               our vision, ran with it and exceeded our expectations. I look for
               every excuse possible to work with them again.”
             </p>
-            <p className="test_name">M. PARNESS</p>
-            <div className="home_btn">
-              <button className="about_studio_button">ABOUT THE STUDIO</button>
+            <p className="test_name mt-4 !text-sm sm:!text-base tracking-widest">
+              M. PARNESS
+            </p>
+            <div className="home_btn mt-6 ">
+              <button className="about_studio_button  ">
+                ABOUT THE STUDIO
+              </button>
             </div>
-          </div>
-
-          <div>
-            <img className="joy_headshot" src="./cfo.jpg" alt="Joy" />
           </div>
         </div>
       </div>
 
       {/* Projects */}
-      <div className="flex justify-between scroll_animation">
-        <div className="flex-1 min-w-0">
-          <img className="w-full h-auto" src="./m1.jpg" />
+    <div className="flex flex-col w-full">
+  {/* ============ SECTION 1 ============ */}
+  <div className="scroll_animation flex flex-col min-[791px]:flex-row items-stretch w-full overflow-x-clip max-[790px]:contents">
+    {/* Image */}
+    <div className="w-full min-[791px]:w-1/2 min-[791px]:flex-none min-w-0 max-[790px]:relative max-[790px]:z-20 max-[790px]:shadow-[0_-16px_40px_rgba(0,0,0,0.18)]">
+      <img
+        className="block w-full h-auto min-[791px]:h-full object-cover"
+        src="./m1.jpg"
+        alt="Interior design by Salt Design Company"
+        loading="lazy"
+      />
+    </div>
+
+    {/* Text */}
+    <div className="w-full min-[791px]:w-1/2 min-[791px]:flex-none min-w-0 flex min-[791px]:items-center justify-center px-5 sm:px-8 min-[791px]:px-10 pt-8 pb-16 min-[791px]:py-0 box-border max-[790px]:items-start max-[790px]:sticky max-[790px]:top-0 max-[790px]:z-10 max-[790px]:min-h-[75svh] max-[790px]:bg-[#F6F4F0]">
+      <div className="scroll_text !w-full !max-w-xl !mx-auto text-left">
+        <p className="scroll_text_minor !text-sm sm:!text-base !leading-relaxed !text-left">
+          Located in Red Bank, New Jersey, Salt Design Company is a
+          full-service interior design firm designing timeless and
+          elevated family homes throughout Monmouth County and beyond.
+        </p>
+
+        <div className="scroll_header !pt-5 min-[791px]:!pt-8 !pb-0 !text-left">
+          <p className="scroll_big_text !my-2 !text-base min-[451px]:!text-lg min-[791px]:!text-xl lg:!text-2xl !leading-tight !text-left">
+            Full Service
+          </p>
+          <p className="scroll_big_text !my-2 !text-base min-[451px]:!text-lg min-[791px]:!text-xl lg:!text-2xl !leading-tight !text-left">
+            New Construction
+          </p>
+          <p className="scroll_big_text !my-2 !text-base min-[451px]:!text-lg min-[791px]:!text-xl lg:!text-2xl !leading-tight !text-left">
+            Remodelling &amp; Renovation
+          </p>
+          <p className="scroll_big_text !my-2 !text-base min-[451px]:!text-lg min-[791px]:!text-xl lg:!text-2xl !leading-tight !text-left">
+            Virtual Consultation
+          </p>
         </div>
 
-        <div className="flex-1 min-w-0 flex items-center justify-center">
-          <div className="scroll_text">
-            <p className="scroll_text_minor">
-              Located in Red Bank, New Jersey, Salt Design Company is a
-              full-service interior design firm designing timeless and elevated
-              family homes throughout Monmouth County and beyond.
-            </p>
-            <div className="scroll_header">
-              <p className="scroll_big_text">Full Service</p>
-              <p className="scroll_big_text">New Construction</p>
-              <p className="scroll_big_text">Remodelling & Renovation</p>
-              <p className="scroll_big_text">Virtual Consultation</p>
-            </div>
-            <div className="home_btn">
-              <button className="scroll_btn">WORK TOGETHER </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex justify-between scroll_animation">
-        <div className="flex-1 min-w-0 flex items-center justify-center">
-          <div className=" woodwrap_text_div">
-            <p>
-              At Woodwrap, we believe that stylish, elevated, and timeless
-              interiors can transform daily rituals into moments of relaxation
-              and inspiration.
-            </p>
-            <p className="mt-10">
-              Our full-service approach, deep vendor relationships, and
-              commitment to overseeing every detail ensure that your home is not
-              only beautifully curated but also a place to be lived in and loved
-              for years to come
-            </p>
-          </div>
-        </div>
-
-        <div className="flex-1 min-w-0">
-          <img className="w-full h-auto" src="./seas.jpg" />
+        <div className="home_btn !w-full !flex !justify-center !mt-3 !pt-0">
+          <button className="scroll_btn">WORK TOGETHER</button>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div className="flex justify-between scroll_animation">
-        <div className="flex-1 min-w-0">
-          <img className="w-full h-auto" src="./lagos.jpg" />
+  {/* ============ SECTION 2 ============ */}
+  <div className="scroll_animation flex flex-col min-[791px]:flex-row items-stretch w-full overflow-x-clip max-[790px]:contents">
+    {/* Image */}
+    <div className="w-full min-[791px]:w-1/2 min-[791px]:flex-none min-w-0 max-[790px]:relative max-[790px]:z-20 max-[790px]:shadow-[0_-16px_40px_rgba(0,0,0,0.18)]">
+      <img
+        className="block w-full h-auto min-[791px]:h-full object-cover"
+        src="./seas.jpg"
+        alt="Woodwrap interior"
+        loading="lazy"
+      />
+    </div>
+
+    {/* Text */}
+    <div className="w-full min-[791px]:w-1/2 min-[791px]:flex-none min-[791px]:order-first min-w-0 flex min-[791px]:items-center justify-center px-5 sm:px-8 min-[791px]:px-10 pt-8 pb-16 min-[791px]:py-0 box-border max-[790px]:items-start max-[790px]:sticky max-[790px]:top-0 max-[790px]:z-10 max-[790px]:min-h-[75svh] max-[790px]:bg-[#F6F4F0]">
+      <div className="woodwrap_text_div !w-full !max-w-xl !mx-auto text-left">
+        <p className="!text-base sm:!text-lg min-[791px]:!text-xl !leading-relaxed">
+          At Woodwrap, we believe that stylish, elevated, and timeless
+          interiors can transform daily rituals into moments of relaxation
+          and inspiration.
+        </p>
+        <p className="mt-6 min-[791px]:mt-10 !text-base sm:!text-lg min-[791px]:!text-xl !leading-relaxed">
+          Our full-service approach, deep vendor relationships, and
+          commitment to overseeing every detail ensure that your home is
+          not only beautifully curated but also a place to be lived in and
+          loved for years to come
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {/* ============ SECTION 3 ============ */}
+  <div className="scroll_animation flex flex-col min-[791px]:flex-row items-stretch w-full overflow-x-clip max-[790px]:contents">
+    {/* Image */}
+    <div className="w-full min-[791px]:w-1/2 min-[791px]:flex-none min-w-0 max-[790px]:relative max-[790px]:z-20 max-[790px]:shadow-[0_-16px_40px_rgba(0,0,0,0.18)]">
+      <img
+        className="block w-full h-auto min-[791px]:h-full object-cover"
+        src="./lagos.jpg"
+        alt="Woodwrap project in Lagos"
+        loading="lazy"
+      />
+    </div>
+
+    {/* Text */}
+    <div className="w-full min-[791px]:w-1/2 min-[791px]:flex-none min-w-0 flex min-[791px]:items-center justify-center px-5 sm:px-8 min-[791px]:px-10 pt-8 pb-16 min-[791px]:py-0 box-border max-[790px]:items-start max-[790px]:sticky max-[790px]:top-0 max-[790px]:z-10 max-[790px]:min-h-[75svh] max-[790px]:bg-[#F6F4F0]">
+      <div className="scroll_text !w-full !max-w-xl !mx-auto text-left">
+        <div className="woodwrap_text_div !max-w-none">
+          <p className="!text-base sm:!text-lg min-[791px]:!text-xl !leading-relaxed !text-left">
+            At Woodwrap, we believe that stylish, elevated, and timeless
+            interiors can transform daily rituals into moments of
+            relaxation and inspiration.
+          </p>
         </div>
 
-        <div className="flex-1 min-w-0 flex items-center justify-center">
-          <div className="scroll_text">
-            <div className=" woodwrap_text_div">
-              <p>
-                At Woodwrap, we believe that stylish, elevated, and timeless
-                interiors can transform daily rituals into moments of relaxation
-                and inspiration.
-              </p>
-            </div>
-            <div className="home_btn">
-              <button className="scroll_btn">WORK TOGETHER </button>
-            </div>
-          </div>
+        <div className="home_btn !w-full !flex !justify-center !mt-6 min-[791px]:!mt-8 !pt-0">
+          <button className="scroll_btn">WORK TOGETHER</button>
         </div>
       </div>
-
+    </div>
+  </div>
+</div>
       <div className="statband">
         <StatsBand />
       </div>
+
       {/* Process */}
-      <div className="list_service mb-20 flex flex-col min-[451px]:flex-row items-center justify-center gap-10 md:gap-16">
+      <div className="list_service flex flex-col min-[791px]:flex-row items-center justify-center gap-8 min-[791px]:gap-16 w-full box-border">
         {/* IMAGE */}
-        <div className="w-full min-[451px]:w-auto flex justify-center">
+        <div className="w-full max-w-[420px] min-[791px]:max-w-none min-[791px]:w-1/2 flex justify-center">
           <img
-            className="list_img w-full h-auto"
+            className="list_img w-full h-auto object-cover"
             src="./mirror.webp"
             alt="Design process"
+            loading="lazy"
           />
         </div>
 
         {/* TEXT */}
-        <div className="service_div  w-full min-[451px]:w-auto">
+        <div className="service_div w-full min-[791px]:w-1/2 min-w-0">
           <p className="second_div_header m-0">
             <span className="work_text">Our</span>
           </p>
 
-          <p className="second_div_header mb-10">Design Process</p>
+          <p className="second_div_header mb-6 sm:mb-10">Design Process</p>
 
           {services.map((service, i) => (
             <div key={i}>
               {/* ROW */}
               <div
-                className="service_row flex justify-between items-center cursor-pointer"
+                className="service_row flex justify-between items-center gap-4 cursor-pointer py-3"
                 onClick={() => toggle(i)}
+                role="button"
+                tabIndex={0}
+                aria-expanded={openIndex === i}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") toggle(i);
+                }}
               >
                 <p className="service_text">{service.title}</p>
-                {openIndex === i ? <Minus size={14} /> : <Plus size={14} />}
+                <span className="shrink-0">
+                  {openIndex === i ? <Minus size={14} /> : <Plus size={14} />}
+                </span>
               </div>
 
               {/* DROPDOWN */}
               <div
                 className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === i ? "max-h-40 mt-2" : "max-h-0"
+                  openIndex === i ? "max-h-96 mt-2 pb-3" : "max-h-0"
                 }`}
               >
                 <p className="text-sm leading-relaxed">{service.text}</p>

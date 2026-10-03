@@ -14,8 +14,8 @@ export default function InfiniteCarousel() {
   const trackRef = useRef(null);
   const containerRef = useRef(null);
   const [itemWidth, setItemWidth] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(3);
 
-  const visibleCount = 3;
   const gap = 16;
   const speed = 30;
 
@@ -24,9 +24,14 @@ export default function InfiniteCarousel() {
   useEffect(() => {
     function measure() {
       if (!containerRef.current) return;
+
+      // 1 image on small screens, 3 on desktop
+      const count = window.innerWidth <= 790 ? 1 : 3;
+      setVisibleCount(count);
+
       const width = containerRef.current.offsetWidth;
-      const totalGap = gap * (visibleCount - 1);
-      setItemWidth((width - totalGap) / visibleCount);
+      const totalGap = gap * (count - 1);
+      setItemWidth((width - totalGap) / count);
     }
 
     measure();
@@ -75,15 +80,13 @@ export default function InfiniteCarousel() {
             className="relative flex-shrink-0 rounded-xl overflow-hidden"
             style={{
               width: itemWidth ? `${itemWidth}px` : `${100 / visibleCount}%`,
-              // Taller ratio than before (was 4/3). Try 3/4 for portrait,
-              // or swap to a fixed height like height: "480px" instead.
               aspectRatio: "3 / 4",
             }}
           >
             {/* Image */}
             <img
               src={item.src}
-              alt=""
+              alt={item.text}
               className="w-full h-full object-cover"
               draggable={false}
             />
@@ -92,7 +95,7 @@ export default function InfiniteCarousel() {
             <div className="absolute inset-0 bg-black/40" />
 
             {/* Bottom center text */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white scrol_tetx text-sm md:text-base font-medium text-center px-2">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-full text-white scrol_tetx text-base md:text-base font-medium text-center px-4">
               {item.text}
             </div>
           </div>

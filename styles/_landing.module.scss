@@ -11,7 +11,7 @@
   font-family: "Tenor Sans", sans-serif;
   font-weight: 400;
 }
-.divider_line{
+.divider_line {
   border: 0.4px solid rgba(0, 0, 0, 0.421);
   width: 60%;
   margin-top: 80px;
@@ -30,13 +30,13 @@
 }
 
 .hero_second_div {
-  max-width: 750px;
+  max-width: 1050px;
   font-size: 25px;
   font-family: "Tenor Sans", sans-serif;
 }
 
 .about_joy {
-  padding: 100px;
+  padding: 50px;
   max-width: 600px;
 }
 
@@ -61,7 +61,7 @@
   margin-top: 15px;
   object-fit: cover;
 }
-.woodwrap_text_div{
+.woodwrap_text_div {
   max-width: 500px;
   font-size: 20px;
   font-family: "Tenor Sans", sans-serif;
@@ -71,16 +71,16 @@
   font-size: 18px;
   margin-top: 14px;
 }
-.scroll_text_minor{
+.scroll_text_minor {
   font-size: 13px;
 }
-.scroll_big_text{
+.scroll_big_text {
   font-family: "Newsreader", serif;
-margin-top: 10px;
-margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-size: 27px;
 }
-.scroll_header{
+.scroll_header {
   padding-top: 50px;
 }
 .view_project {
@@ -89,7 +89,7 @@ margin-bottom: 10px;
   font-size: 25px;
   margin-top: 70px;
 }
-.scroll_text{
+.scroll_text {
   max-width: 400px;
 }
 
@@ -193,9 +193,8 @@ margin-bottom: 10px;
   color: white;
   padding: 100px 0;
 }
-.susan_div{
-  background-color: #F6F4F0 !important;
-
+.susan_div {
+  background-color: #f6f4f0 !important;
 }
 .joy_div {
   display: flex;
@@ -210,6 +209,9 @@ margin-bottom: 10px;
 /* RESPONSIVE */
 /* ========================= */
 @media (max-width: 1029px) {
+  .joy_headshot {
+    height: 450px;
+  }
   .Hero_Heqd_text {
     font-size: 40px;
   }
@@ -222,15 +224,36 @@ margin-bottom: 10px;
     text-align: left;
     font-family: "Baskervville", serif;
   }
+  .hero_second_div {
+    max-width: 750px;
+    font-size: 17px;
+    font-family: "Tenor Sans", sans-serif;
+  }
 }
 
 @media (max-width: 768px) {
+  .woodwrap_text_div {
+  max-width: 500px;
+  font-size: 16px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: "Tenor Sans", sans-serif;
+}
+  .scroll_header {
+  padding-top: 20px;
+}
+  .scroll_big_text {
+    font-family: "Newsreader", serif;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    font-size: 20px;
+  }
   .diana_name {
     font-size: 38px;
     text-align: left;
     font-family: "Baskervville", serif;
   }
-  
+
   .btn_wrapper {
     justify-content: flex-start;
   }
@@ -242,7 +265,10 @@ margin-bottom: 10px;
   .selected_project {
     font-size: 35px;
   }
-
+  .scroll_text {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
   .interior_serivce_text {
     text-align: left;
   }
@@ -250,8 +276,8 @@ margin-bottom: 10px;
     height: 500px;
   }
   .about_joy {
-    padding: 100px;
-    max-width: 400px;
+    padding: 0px;
+    max-width: 500px;
   }
   .selected_project_div {
     padding-left: 30px;
@@ -277,21 +303,35 @@ margin-bottom: 10px;
 }
 
 @media (max-width: 450px) {
+   .hero_second_div {
+    max-width: 750px;
+    margin-left: 3px;
+    margin-right: 3px;
+    font-size: 18px;
+    font-family: "Tenor Sans", sans-serif;
+  }
   .testimonial_texts {
-  font-family: "Baskerville", serif;
-  font-size: 28px;
-  font-style: italic;
-  text-align: center;
-  margin-top: 01px;
-  color: white;
-}
+    font-family: "Baskerville", serif;
+    font-size: 28px;
+    font-style: italic;
+    text-align: center;
+    margin-top: 01px;
+    color: white;
+  }
   .Hero_Heqd_text {
     font-size: 30px;
   }
   .joy_headshot {
+    height: 450px;
+
     margin-top: 30px;
   }
-   .about_joy {
+  .second_div_header {
+  font-size: 40px;
+  font-family: "Baskervville", serif;
+  line-height: 47px;
+}
+  .about_joy {
     padding: 50px;
     max-width: 400px;
   }
