@@ -12,6 +12,7 @@ export default function Header() {
     { label: "PORTFOLIO", href: "/project" }, // matches the "projects" folder
     { label: "BLOG", href: "/blog" },
     { label: "CONTACT", href: "/contact" },
+    
   ];
 
   // Close the mobile menu whenever the route changes
