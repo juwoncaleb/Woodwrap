@@ -9,7 +9,7 @@ export default function Header() {
   const rightLinks = [
     { label: "ABOUT", href: "/about" },
     { label: "SERVICE", href: "/services" }, // change to /services if your file is services.js
-    { label: "PORTFOLIO", href: "/projects" }, // matches the "projects" folder
+    { label: "PORTFOLIO", href: "/project" }, // matches the "projects" folder
     { label: "BLOG", href: "/blog" },
     { label: "CONTACT", href: "/contact" },
   ];
