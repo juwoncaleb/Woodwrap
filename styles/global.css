@@ -17,14 +17,14 @@
   width: 100%;
   background: transparent;
   z-index: 50;
-  padding: 20px 40px;
+  padding: 20px 0px;
   background-color: white;
   color: black !important;
   border-bottom: 1px solid black;
 }
 
 .logo_header {
-  height: 45px;
+  height: 55px;
 }
 
 .head_element {
@@ -65,7 +65,7 @@
     font-size: 14px;
   }
   .logo_header {
-    height: 30px;
+    height: 40px;
   }
 }
 /* ========================= */

@@ -31,7 +31,7 @@ export default function Header() {
         {/* Logo - far left */}
         <Link href="/">
           <img
-            className="logo_header h-10 w-auto"
+            className="logo_header "
             src="/woodlogo.png"
             alt="Logo"
           />
