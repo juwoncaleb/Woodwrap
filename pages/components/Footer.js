@@ -35,9 +35,9 @@ const DEFAULT_SOCIALS = [
 ];
 
 function CircleBadge({
-  topText = "SALT DESIGN CO",
-  bottomText = "EST. 2014   NEW JERSEY",
-  monogram = "SD",
+  topText = "WOODWRAP",
+  bottomText = "EST. 2014   LAGOS NIGERIA",
+  monogram = "WW",
 }) {
   return (
     <svg
