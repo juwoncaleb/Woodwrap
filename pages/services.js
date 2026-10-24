@@ -6,7 +6,7 @@ import EnquiryForm from "./components/enquiry";
 import ServicesShowcase from "./components/display";
 import Testimonials from "./components/testimonies";
 
-const images = ["/img2.webp"];
+const images = ["/zip.jpeg"];
 
 const services = [
   {

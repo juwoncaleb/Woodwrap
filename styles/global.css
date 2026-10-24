@@ -71,6 +71,10 @@
 /* ========================= */
 /* HERO */
 /* ========================= */
+.section1_img {
+  height: 600px;
+}
+
 .Hero_Heqd_text {
   font-size: 69px;
   font-family: "Tenor Sans", sans-serif;

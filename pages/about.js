@@ -9,7 +9,7 @@ import InfiniteCarousel from "./components/imagecarousel";
 import TeamPage from "./components/team";
 import VideoEmbed from "./components/yt";
 
-const images = ["/lolol.webp"];
+const images = ["/13(1).jpeg"];
 
 export default function About() {
   const [current, setCurrent] = useState(0);
@@ -53,7 +53,7 @@ export default function About() {
       <div className="flex flex-col items-center text-center px-5 sm:px-8 py-10 sm:py-14 md:py-16 box-border">
          <img
               className="joy_headshot "
-              src="./cfo.jpg"
+              src="./susa.jpg"
               alt="Joy"
               loading="lazy"
             />
@@ -98,7 +98,7 @@ export default function About() {
         <div className="w-full min-[791px]:w-1/2 min-[791px]:flex-none min-w-0">
           <img
             className="block w-full h-auto min-[791px]:h-full object-cover"
-            src="./seas.jpg"
+            src="./9.jpeg"
             alt="Woodwrap interior"
             loading="lazy"
           />

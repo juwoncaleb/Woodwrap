@@ -4,50 +4,50 @@ import Link from "next/link";
 
 // Image shown on the right when nothing is open
 const DEFAULT_IMAGE = {
-  src: "/joy.jpg",
-  alt: "Designer standing in a dining room",
+  src: "/susa.jpg",
+  alt: "Susan, founder of Woodwrap, in a dining room",
 };
 
 const SERVICES = [
   {
     title: "Architectural Interior Design",
     description:
-      "Architectural Interior Design is what we do. Simply put, it is the design of the home from the inside out – perfectly thought through so that the interior works hard to support the inhabitants’ lifestyles, and also acknowledges the architectural style of the building. Don’t get caught into thinking that you need an architect for the outside, and an interior designer for the inside. We have a dedicated architect in our design team because we recognise the importance of weaving our solutions together seamlessly, focussing on all design touch points.",
+      "Architectural Interior Design is what we do at Woodwrap. Simply put, it is the design of the home from the inside out, perfectly thought through so that the interior works hard to support the way you live, while respecting the architecture of the building. Don’t get caught into thinking that you need an architect for the outside and an interior designer for the inside. Susan leads our design team with architectural input from the very start, because we recognise the importance of weaving our solutions together seamlessly, focusing on all design touch points.",
     image: "/im1.jpg",
     alt: "Looking down a curved staircase with glass pendant lights",
   },
   {
-    title: "Period Property Renovation",
+    title: "Renovation & Remodelling",
     description:
-      "An older home has character that can’t be reproduced, and our role is to protect it while making the house work for modern life. We study the original features, from cornicing and panelling to staircases and windows, and restore what deserves saving. Then we quietly bring in the comfort, lighting, storage and services a family expects today. The result feels as though it has always belonged there.",
+      "An older home has character that can’t be reproduced, and our role is to protect it while making the house work for modern life in Lagos. We study the original features, from staircases and windows to ceilings and floors, and restore what deserves saving. Then we quietly bring in the comfort, lighting, storage and services a family expects today, including smart power and cooling planning for Lagos living. The result feels as though it has always belonged there.",
     image: "/im4.jpg",
-    alt: "Period property interior",
+    alt: "Renovated home interior in Lagos",
   },
   {
     title: "Interior Design - Standard",
     description:
-      "For homes that are structurally complete and need a considered interior. We start with how you live, then shape the layout, colour, materials, furniture and lighting around it. You receive a clear design scheme, a full specification and guidance through sourcing, so every choice supports the others and the finished rooms feel calm, cohesive and entirely yours.",
+      "For homes that are structurally complete and need a considered interior. We start with how you live, then shape the layout, colour, materials, furniture and lighting around it. You receive a clear design scheme, a full specification and guidance through sourcing, whether local or imported, so every choice supports the others and the finished rooms feel calm, cohesive and entirely yours.",
     image: "/lob1.jpg",
-    alt: "Interior design project",
+    alt: "Interior design project by Woodwrap",
   },
   {
     title: "New Build",
     description:
-      "A new build is a blank page, and the earlier we are involved, the better the home becomes. We work with your architect and contractor from the first drawings, planning room proportions, light, circulation and services so the interior is designed into the building rather than added afterwards. From structure to final styling, one team holds the vision together.",
+      "A new build is a blank page, and the earlier we are involved, the better the home becomes. We work with your architect and contractor from the first drawings, planning room proportions, light, airflow, circulation and services so the interior is designed into the building rather than added afterwards. From structure to final styling, one Lagos-based team holds the vision together.",
     image: "/images/new-build.jpg",
-    alt: "New build interior",
+    alt: "New build interior in Lagos",
   },
   {
     title: "Kitchens & Cabinetry",
     description:
-      "The kitchen is where a home’s daily life happens, so it has to look beautiful and work hard. We design layouts around the way you cook and entertain, then detail cabinetry, worktops, appliances and lighting to fit. Every drawer, door and joint is made to measure, with finishes chosen to age well and match the rest of the house.",
+      "The kitchen is where a home’s daily life happens, so it has to look beautiful and work hard. We design layouts around the way you cook and entertain, then detail cabinetry, worktops, appliances and lighting to fit. Every drawer, door and joint is made to measure, with finishes chosen to stand up to Lagos heat and humidity and match the rest of the house.",
     image: "/lekki1p.webp",
     alt: "Kitchen with bespoke cabinetry",
   },
   {
     title: "Bespoke Design",
     description:
-      "Some rooms call for a piece that simply doesn’t exist yet. We design and make one-of-a-kind furniture, joinery and fittings, from statement dining tables and built-in wardrobes to media walls and mirrors. Each is drawn to your space, built by skilled craftspeople and finished to a standard that becomes a lasting part of the home.",
+      "Some rooms call for a piece that simply doesn’t exist yet. We design and make one-of-a-kind furniture, joinery and fittings, from statement dining tables and built-in wardrobes to media walls and mirrors. Each is drawn to your space, built by skilled craftspeople in Lagos and finished to a standard that becomes a lasting part of the home.",
     image: "/lol.jpg",
     alt: "Bespoke furniture design",
   },
